@@ -12,7 +12,8 @@ from the original files at build time.
 ## Run
 
 ```
-python tools/build_bundle.py   # decode original/*.dat -> assets.js (once)
+python tools/build_bundle.py   # decode original/*.dat -> assets.js
+python tools/build_adlib.py    # decode original/adlib.dat -> adlib_data.js
 python -m http.server          # then open http://localhost:8000
 ```
 
