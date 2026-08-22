@@ -1,0 +1,18 @@
+﻿pa_0e8.png 640 x 350
+  blob x=0..631 w=632 (skip)
+
+pa_1d6.png 640 x 350
+  blob x=0..631 w=632 (skip)
+
+pa_6c9.png 640 x 400
+  blob x=0..639 w=640 (skip)
+
+pa_d30.png 640 x 400
+  blob x=0..639 w=640 (skip)
+
+pa_dc9.png 640 x 400
+  blob x=0..639 w=640 (skip)
+
+pa_ff5.png 640 x 400
+  blob x=0..639 w=640 (skip)
+

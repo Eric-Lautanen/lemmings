@@ -1,0 +1,1180 @@
+﻿===== start 0x184
+0000  51                     push cx
+0001  52                     push dx
+0002  56                     push si
+0003  57                     push di
+0004  1e                     push ds
+0005  0e                     push cs
+0006  1f                     pop ds
+0007  32ff                   xor bh, bh
+0009  8adc                   mov bl, ah
+000b  80ec10                 sub ah, 0x10
+000e  770d                   ja 0x1d
+0010  d0e3                   shl bl, 1
+0012  ff971e00               call word ptr [bx + 0x1e]
+0016  1f                     pop ds
+0017  5f                     pop di
+0018  5e                     pop si
+0019  5a                     pop dx
+001a  59                     pop cx
+001b  5b                     pop bx
+001c  cf                     iret 
+001d  80eb20                 sub bl, 0x20
+0020  7204                   jb 0x26
+0022  8807                   mov byte ptr [bx], al
+0024  ebf0                   jmp 0x16
+0026  8adc                   mov bl, ah
+0028  8a07                   mov al, byte ptr [bx]
+002a  ebea                   jmp 0x16
+002c  b90f00                 mov cx, 0xf
+002f  bb2800                 mov bx, 0x28
+0032  f6e9                   imul cl
+0034  03d8                   add bx, ax
+0036  be0a00                 mov si, 0xa
+0039  882e0100               mov byte ptr [1], ch
+003d  8a07                   mov al, byte ptr [bx]
+003f  8804                   mov byte ptr [si], al
+0041  43                     inc bx
+0042  46                     inc si
+0043  e2f8                   loop 0x3d
+0045  a11700                 mov ax, word ptr [0x17]
+0048  a30800                 mov word ptr [8], ax
+004b  fe0e0100               dec byte ptr [1]
+004f  c3                     ret 
+0050  b90200                 mov cx, 2
+0053  8afd                   mov bh, ch
+0055  a00200                 mov al, byte ptr [2]
+0058  00060600               add byte ptr [6], al
+005c  383e0100               cmp byte ptr [1], bh
+0060  744c                   je 0xae
+0062  fe0e1600               dec byte ptr [0x16]
+0066  7506                   jne 0x6e
+0068  883e0100               mov byte ptr [1], bh
+006c  eb40                   jmp 0xae
+006e  a11700                 mov ax, word ptr [0x17]
+0071  fe0e0900               dec byte ptr [9]
+0075  7516                   jne 0x8d
+0077  88260900               mov byte ptr [9], ah
+007b  d00e1400               ror byte ptr [0x14], 1
+007f  8b161000               mov dx, word ptr [0x10]
+0083  7204                   jb 0x89
+0085  8b161200               mov dx, word ptr [0x12]
+0089  01160c00               add word ptr [0xc], dx
+008d  8b160c00               mov dx, word ptr [0xc]
+0091  03160a00               add dx, word ptr [0xa]
+0095  fe0e0800               dec byte ptr [8]
+0099  7507                   jne 0xa2
+009b  a20800                 mov byte ptr [8], al
+009e  8b160e00               mov dx, word ptr [0xe]
+00a2  89160c00               mov word ptr [0xc], dx
+00a6  d00e1500               ror byte ptr [0x15], 1
+00aa  7202                   jb 0xae
+00ac  8bca                   mov cx, dx
+00ae  390e1a00               cmp word ptr [0x1a], cx
+00b2  7410                   je 0xc4
+00b4  b0b6                   mov al, 0xb6
+00b6  e643                   out 0x43, al
+00b8  8ac1                   mov al, cl
+00ba  e642                   out 0x42, al
+00bc  8ac5                   mov al, ch
+00be  e642                   out 0x42, al
+00c0  890e1a00               mov word ptr [0x1a], cx
+00c4  e461                   in al, 0x61
+00c6  0c03                   or al, 3
+00c8  e661                   out 0x61, al
+00ca  c3                     ret 
+00cb  32c0                   xor al, al
+00cd  a20100                 mov byte ptr [1], al
+00d0  c3                     ret 
+00d1  90                     nop 
+00d2  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d7  d07418                 sal byte ptr [si + 0x18], 1
+00da  ff064007               inc word ptr [0x740]
+00de  8b4604                 mov ax, word ptr [bp + 4]
+00e1  40                     inc ax
+00e2  50                     push ax
+00e3  b8e807                 mov ax, 0x7e8
+00e6  50                     push ax
+00e7  e8d89e                 call 0xffff9fc2
+00ea  83c404                 add sp, 4
+00ed  8be5                   mov sp, bp
+00ef  5d                     pop bp
+00f0  c3                     ret 
+00f1  90                     nop 
+00f2  2bc0                   sub ax, ax
+00f4  50                     push ax
+00f5  b80700                 mov ax, 7
+00f8  50                     push ax
+00f9  ff7604                 push word ptr [bp + 4]
+00fc  e80d6b                 call 0x6c0c
+00ff  83c406                 add sp, 6
+0102  8946fc                 mov word ptr [bp - 4], ax
+0105  8956fe                 mov word ptr [bp - 2], dx
+0108  0bd0                   or dx, ax
+010a  7517                   jne 0x123
+010c  b8ffff                 mov ax, 0xffff
+010f  50                     push ax
+0110  b80300                 mov ax, 3
+0113  50                     push ax
+0114  ff7604                 push word ptr [bp + 4]
+0117  e8f26a                 call 0x6c0c
+011a  83c406                 add sp, 6
+011d  8946fc                 mov word ptr [bp - 4], ax
+0120  8956fe                 mov word ptr [bp - 2], dx
+0123  c45efc                 les bx, ptr [bp - 4]
+0126  26c6470403             mov byte ptr es:[bx + 4], 3
+012b  8b4608                 mov ax, word ptr [bp + 8]
+012e  26894706               mov word ptr es:[bx + 6], ax
+0132  8b460a                 mov ax, word ptr [bp + 0xa]
+0135  26894708               mov word ptr es:[bx + 8], ax
+0139  8a4606                 mov al, byte ptr [bp + 6]
+013c  26884705               mov byte ptr es:[bx + 5], al
+0140  ff069807               inc word ptr [0x798]
+0144  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0149  803e360800             cmp byte ptr [0x836], 0
+014e  7416                   je 0x166
+0150  8b5e04                 mov bx, word ptr [bp + 4]
+0153  8a07                   mov al, byte ptr [bx]
+0155  2ae4                   sub ah, ah
+0157  50                     push ax
+0158  2bc0                   sub ax, ax
+015a  50                     push ax
+015b  ff366027               push word ptr [0x2760]
+015f  ff365e27               push word ptr [0x275e]
+0163  e8320b                 call 0xc98
+0166  8be5                   mov sp, bp
+0168  5d                     pop bp
+0169  c3                     ret 
+016a  55                     push bp
+016b  8bec                   mov bp, sp
+016d  ff7606                 push word ptr [bp + 6]
+
+===== start 0x185
+0000  52                     push dx
+0001  56                     push si
+0002  57                     push di
+0003  1e                     push ds
+0004  0e                     push cs
+0005  1f                     pop ds
+0006  32ff                   xor bh, bh
+0008  8adc                   mov bl, ah
+000a  80ec10                 sub ah, 0x10
+000d  770d                   ja 0x1c
+000f  d0e3                   shl bl, 1
+0011  ff971e00               call word ptr [bx + 0x1e]
+0015  1f                     pop ds
+0016  5f                     pop di
+0017  5e                     pop si
+0018  5a                     pop dx
+0019  59                     pop cx
+001a  5b                     pop bx
+001b  cf                     iret 
+001c  80eb20                 sub bl, 0x20
+001f  7204                   jb 0x25
+0021  8807                   mov byte ptr [bx], al
+0023  ebf0                   jmp 0x15
+0025  8adc                   mov bl, ah
+0027  8a07                   mov al, byte ptr [bx]
+0029  ebea                   jmp 0x15
+002b  b90f00                 mov cx, 0xf
+002e  bb2800                 mov bx, 0x28
+0031  f6e9                   imul cl
+0033  03d8                   add bx, ax
+0035  be0a00                 mov si, 0xa
+0038  882e0100               mov byte ptr [1], ch
+003c  8a07                   mov al, byte ptr [bx]
+003e  8804                   mov byte ptr [si], al
+0040  43                     inc bx
+0041  46                     inc si
+0042  e2f8                   loop 0x3c
+0044  a11700                 mov ax, word ptr [0x17]
+0047  a30800                 mov word ptr [8], ax
+004a  fe0e0100               dec byte ptr [1]
+004e  c3                     ret 
+004f  b90200                 mov cx, 2
+0052  8afd                   mov bh, ch
+0054  a00200                 mov al, byte ptr [2]
+0057  00060600               add byte ptr [6], al
+005b  383e0100               cmp byte ptr [1], bh
+005f  744c                   je 0xad
+0061  fe0e1600               dec byte ptr [0x16]
+0065  7506                   jne 0x6d
+0067  883e0100               mov byte ptr [1], bh
+006b  eb40                   jmp 0xad
+006d  a11700                 mov ax, word ptr [0x17]
+0070  fe0e0900               dec byte ptr [9]
+0074  7516                   jne 0x8c
+0076  88260900               mov byte ptr [9], ah
+007a  d00e1400               ror byte ptr [0x14], 1
+007e  8b161000               mov dx, word ptr [0x10]
+0082  7204                   jb 0x88
+0084  8b161200               mov dx, word ptr [0x12]
+0088  01160c00               add word ptr [0xc], dx
+008c  8b160c00               mov dx, word ptr [0xc]
+0090  03160a00               add dx, word ptr [0xa]
+0094  fe0e0800               dec byte ptr [8]
+0098  7507                   jne 0xa1
+009a  a20800                 mov byte ptr [8], al
+009d  8b160e00               mov dx, word ptr [0xe]
+00a1  89160c00               mov word ptr [0xc], dx
+00a5  d00e1500               ror byte ptr [0x15], 1
+00a9  7202                   jb 0xad
+00ab  8bca                   mov cx, dx
+00ad  390e1a00               cmp word ptr [0x1a], cx
+00b1  7410                   je 0xc3
+00b3  b0b6                   mov al, 0xb6
+00b5  e643                   out 0x43, al
+00b7  8ac1                   mov al, cl
+00b9  e642                   out 0x42, al
+00bb  8ac5                   mov al, ch
+00bd  e642                   out 0x42, al
+00bf  890e1a00               mov word ptr [0x1a], cx
+00c3  e461                   in al, 0x61
+00c5  0c03                   or al, 3
+00c7  e661                   out 0x61, al
+00c9  c3                     ret 
+00ca  32c0                   xor al, al
+00cc  a20100                 mov byte ptr [1], al
+00cf  c3                     ret 
+00d0  90                     nop 
+00d1  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d6  d07418                 sal byte ptr [si + 0x18], 1
+00d9  ff064007               inc word ptr [0x740]
+00dd  8b4604                 mov ax, word ptr [bp + 4]
+00e0  40                     inc ax
+00e1  50                     push ax
+00e2  b8e807                 mov ax, 0x7e8
+00e5  50                     push ax
+00e6  e8d89e                 call 0xffff9fc1
+00e9  83c404                 add sp, 4
+00ec  8be5                   mov sp, bp
+00ee  5d                     pop bp
+00ef  c3                     ret 
+00f0  90                     nop 
+00f1  2bc0                   sub ax, ax
+00f3  50                     push ax
+00f4  b80700                 mov ax, 7
+00f7  50                     push ax
+00f8  ff7604                 push word ptr [bp + 4]
+00fb  e80d6b                 call 0x6c0b
+00fe  83c406                 add sp, 6
+0101  8946fc                 mov word ptr [bp - 4], ax
+0104  8956fe                 mov word ptr [bp - 2], dx
+0107  0bd0                   or dx, ax
+0109  7517                   jne 0x122
+010b  b8ffff                 mov ax, 0xffff
+010e  50                     push ax
+010f  b80300                 mov ax, 3
+0112  50                     push ax
+0113  ff7604                 push word ptr [bp + 4]
+0116  e8f26a                 call 0x6c0b
+0119  83c406                 add sp, 6
+011c  8946fc                 mov word ptr [bp - 4], ax
+011f  8956fe                 mov word ptr [bp - 2], dx
+0122  c45efc                 les bx, ptr [bp - 4]
+0125  26c6470403             mov byte ptr es:[bx + 4], 3
+012a  8b4608                 mov ax, word ptr [bp + 8]
+012d  26894706               mov word ptr es:[bx + 6], ax
+0131  8b460a                 mov ax, word ptr [bp + 0xa]
+0134  26894708               mov word ptr es:[bx + 8], ax
+0138  8a4606                 mov al, byte ptr [bp + 6]
+013b  26884705               mov byte ptr es:[bx + 5], al
+013f  ff069807               inc word ptr [0x798]
+0143  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0148  803e360800             cmp byte ptr [0x836], 0
+014d  7416                   je 0x165
+014f  8b5e04                 mov bx, word ptr [bp + 4]
+0152  8a07                   mov al, byte ptr [bx]
+0154  2ae4                   sub ah, ah
+0156  50                     push ax
+0157  2bc0                   sub ax, ax
+0159  50                     push ax
+015a  ff366027               push word ptr [0x2760]
+015e  ff365e27               push word ptr [0x275e]
+0162  e8320b                 call 0xc97
+0165  8be5                   mov sp, bp
+0167  5d                     pop bp
+0168  c3                     ret 
+0169  55                     push bp
+016a  8bec                   mov bp, sp
+016c  ff7606                 push word ptr [bp + 6]
+
+===== start 0x186
+0000  56                     push si
+0001  57                     push di
+0002  1e                     push ds
+0003  0e                     push cs
+0004  1f                     pop ds
+0005  32ff                   xor bh, bh
+0007  8adc                   mov bl, ah
+0009  80ec10                 sub ah, 0x10
+000c  770d                   ja 0x1b
+000e  d0e3                   shl bl, 1
+0010  ff971e00               call word ptr [bx + 0x1e]
+0014  1f                     pop ds
+0015  5f                     pop di
+0016  5e                     pop si
+0017  5a                     pop dx
+0018  59                     pop cx
+0019  5b                     pop bx
+001a  cf                     iret 
+001b  80eb20                 sub bl, 0x20
+001e  7204                   jb 0x24
+0020  8807                   mov byte ptr [bx], al
+0022  ebf0                   jmp 0x14
+0024  8adc                   mov bl, ah
+0026  8a07                   mov al, byte ptr [bx]
+0028  ebea                   jmp 0x14
+002a  b90f00                 mov cx, 0xf
+002d  bb2800                 mov bx, 0x28
+0030  f6e9                   imul cl
+0032  03d8                   add bx, ax
+0034  be0a00                 mov si, 0xa
+0037  882e0100               mov byte ptr [1], ch
+003b  8a07                   mov al, byte ptr [bx]
+003d  8804                   mov byte ptr [si], al
+003f  43                     inc bx
+0040  46                     inc si
+0041  e2f8                   loop 0x3b
+0043  a11700                 mov ax, word ptr [0x17]
+0046  a30800                 mov word ptr [8], ax
+0049  fe0e0100               dec byte ptr [1]
+004d  c3                     ret 
+004e  b90200                 mov cx, 2
+0051  8afd                   mov bh, ch
+0053  a00200                 mov al, byte ptr [2]
+0056  00060600               add byte ptr [6], al
+005a  383e0100               cmp byte ptr [1], bh
+005e  744c                   je 0xac
+0060  fe0e1600               dec byte ptr [0x16]
+0064  7506                   jne 0x6c
+0066  883e0100               mov byte ptr [1], bh
+006a  eb40                   jmp 0xac
+006c  a11700                 mov ax, word ptr [0x17]
+006f  fe0e0900               dec byte ptr [9]
+0073  7516                   jne 0x8b
+0075  88260900               mov byte ptr [9], ah
+0079  d00e1400               ror byte ptr [0x14], 1
+007d  8b161000               mov dx, word ptr [0x10]
+0081  7204                   jb 0x87
+0083  8b161200               mov dx, word ptr [0x12]
+0087  01160c00               add word ptr [0xc], dx
+008b  8b160c00               mov dx, word ptr [0xc]
+008f  03160a00               add dx, word ptr [0xa]
+0093  fe0e0800               dec byte ptr [8]
+0097  7507                   jne 0xa0
+0099  a20800                 mov byte ptr [8], al
+009c  8b160e00               mov dx, word ptr [0xe]
+00a0  89160c00               mov word ptr [0xc], dx
+00a4  d00e1500               ror byte ptr [0x15], 1
+00a8  7202                   jb 0xac
+00aa  8bca                   mov cx, dx
+00ac  390e1a00               cmp word ptr [0x1a], cx
+00b0  7410                   je 0xc2
+00b2  b0b6                   mov al, 0xb6
+00b4  e643                   out 0x43, al
+00b6  8ac1                   mov al, cl
+00b8  e642                   out 0x42, al
+00ba  8ac5                   mov al, ch
+00bc  e642                   out 0x42, al
+00be  890e1a00               mov word ptr [0x1a], cx
+00c2  e461                   in al, 0x61
+00c4  0c03                   or al, 3
+00c6  e661                   out 0x61, al
+00c8  c3                     ret 
+00c9  32c0                   xor al, al
+00cb  a20100                 mov byte ptr [1], al
+00ce  c3                     ret 
+00cf  90                     nop 
+00d0  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d5  d07418                 sal byte ptr [si + 0x18], 1
+00d8  ff064007               inc word ptr [0x740]
+00dc  8b4604                 mov ax, word ptr [bp + 4]
+00df  40                     inc ax
+00e0  50                     push ax
+00e1  b8e807                 mov ax, 0x7e8
+00e4  50                     push ax
+00e5  e8d89e                 call 0xffff9fc0
+00e8  83c404                 add sp, 4
+00eb  8be5                   mov sp, bp
+00ed  5d                     pop bp
+00ee  c3                     ret 
+00ef  90                     nop 
+00f0  2bc0                   sub ax, ax
+00f2  50                     push ax
+00f3  b80700                 mov ax, 7
+00f6  50                     push ax
+00f7  ff7604                 push word ptr [bp + 4]
+00fa  e80d6b                 call 0x6c0a
+00fd  83c406                 add sp, 6
+0100  8946fc                 mov word ptr [bp - 4], ax
+0103  8956fe                 mov word ptr [bp - 2], dx
+0106  0bd0                   or dx, ax
+0108  7517                   jne 0x121
+010a  b8ffff                 mov ax, 0xffff
+010d  50                     push ax
+010e  b80300                 mov ax, 3
+0111  50                     push ax
+0112  ff7604                 push word ptr [bp + 4]
+0115  e8f26a                 call 0x6c0a
+0118  83c406                 add sp, 6
+011b  8946fc                 mov word ptr [bp - 4], ax
+011e  8956fe                 mov word ptr [bp - 2], dx
+0121  c45efc                 les bx, ptr [bp - 4]
+0124  26c6470403             mov byte ptr es:[bx + 4], 3
+0129  8b4608                 mov ax, word ptr [bp + 8]
+012c  26894706               mov word ptr es:[bx + 6], ax
+0130  8b460a                 mov ax, word ptr [bp + 0xa]
+0133  26894708               mov word ptr es:[bx + 8], ax
+0137  8a4606                 mov al, byte ptr [bp + 6]
+013a  26884705               mov byte ptr es:[bx + 5], al
+013e  ff069807               inc word ptr [0x798]
+0142  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0147  803e360800             cmp byte ptr [0x836], 0
+014c  7416                   je 0x164
+014e  8b5e04                 mov bx, word ptr [bp + 4]
+0151  8a07                   mov al, byte ptr [bx]
+0153  2ae4                   sub ah, ah
+0155  50                     push ax
+0156  2bc0                   sub ax, ax
+0158  50                     push ax
+0159  ff366027               push word ptr [0x2760]
+015d  ff365e27               push word ptr [0x275e]
+0161  e8320b                 call 0xc96
+0164  8be5                   mov sp, bp
+0166  5d                     pop bp
+0167  c3                     ret 
+0168  55                     push bp
+0169  8bec                   mov bp, sp
+016b  ff7606                 push word ptr [bp + 6]
+
+===== start 0x187
+0000  57                     push di
+0001  1e                     push ds
+0002  0e                     push cs
+0003  1f                     pop ds
+0004  32ff                   xor bh, bh
+0006  8adc                   mov bl, ah
+0008  80ec10                 sub ah, 0x10
+000b  770d                   ja 0x1a
+000d  d0e3                   shl bl, 1
+000f  ff971e00               call word ptr [bx + 0x1e]
+0013  1f                     pop ds
+0014  5f                     pop di
+0015  5e                     pop si
+0016  5a                     pop dx
+0017  59                     pop cx
+0018  5b                     pop bx
+0019  cf                     iret 
+001a  80eb20                 sub bl, 0x20
+001d  7204                   jb 0x23
+001f  8807                   mov byte ptr [bx], al
+0021  ebf0                   jmp 0x13
+0023  8adc                   mov bl, ah
+0025  8a07                   mov al, byte ptr [bx]
+0027  ebea                   jmp 0x13
+0029  b90f00                 mov cx, 0xf
+002c  bb2800                 mov bx, 0x28
+002f  f6e9                   imul cl
+0031  03d8                   add bx, ax
+0033  be0a00                 mov si, 0xa
+0036  882e0100               mov byte ptr [1], ch
+003a  8a07                   mov al, byte ptr [bx]
+003c  8804                   mov byte ptr [si], al
+003e  43                     inc bx
+003f  46                     inc si
+0040  e2f8                   loop 0x3a
+0042  a11700                 mov ax, word ptr [0x17]
+0045  a30800                 mov word ptr [8], ax
+0048  fe0e0100               dec byte ptr [1]
+004c  c3                     ret 
+004d  b90200                 mov cx, 2
+0050  8afd                   mov bh, ch
+0052  a00200                 mov al, byte ptr [2]
+0055  00060600               add byte ptr [6], al
+0059  383e0100               cmp byte ptr [1], bh
+005d  744c                   je 0xab
+005f  fe0e1600               dec byte ptr [0x16]
+0063  7506                   jne 0x6b
+0065  883e0100               mov byte ptr [1], bh
+0069  eb40                   jmp 0xab
+006b  a11700                 mov ax, word ptr [0x17]
+006e  fe0e0900               dec byte ptr [9]
+0072  7516                   jne 0x8a
+0074  88260900               mov byte ptr [9], ah
+0078  d00e1400               ror byte ptr [0x14], 1
+007c  8b161000               mov dx, word ptr [0x10]
+0080  7204                   jb 0x86
+0082  8b161200               mov dx, word ptr [0x12]
+0086  01160c00               add word ptr [0xc], dx
+008a  8b160c00               mov dx, word ptr [0xc]
+008e  03160a00               add dx, word ptr [0xa]
+0092  fe0e0800               dec byte ptr [8]
+0096  7507                   jne 0x9f
+0098  a20800                 mov byte ptr [8], al
+009b  8b160e00               mov dx, word ptr [0xe]
+009f  89160c00               mov word ptr [0xc], dx
+00a3  d00e1500               ror byte ptr [0x15], 1
+00a7  7202                   jb 0xab
+00a9  8bca                   mov cx, dx
+00ab  390e1a00               cmp word ptr [0x1a], cx
+00af  7410                   je 0xc1
+00b1  b0b6                   mov al, 0xb6
+00b3  e643                   out 0x43, al
+00b5  8ac1                   mov al, cl
+00b7  e642                   out 0x42, al
+00b9  8ac5                   mov al, ch
+00bb  e642                   out 0x42, al
+00bd  890e1a00               mov word ptr [0x1a], cx
+00c1  e461                   in al, 0x61
+00c3  0c03                   or al, 3
+00c5  e661                   out 0x61, al
+00c7  c3                     ret 
+00c8  32c0                   xor al, al
+00ca  a20100                 mov byte ptr [1], al
+00cd  c3                     ret 
+00ce  90                     nop 
+00cf  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d4  d07418                 sal byte ptr [si + 0x18], 1
+00d7  ff064007               inc word ptr [0x740]
+00db  8b4604                 mov ax, word ptr [bp + 4]
+00de  40                     inc ax
+00df  50                     push ax
+00e0  b8e807                 mov ax, 0x7e8
+00e3  50                     push ax
+00e4  e8d89e                 call 0xffff9fbf
+00e7  83c404                 add sp, 4
+00ea  8be5                   mov sp, bp
+00ec  5d                     pop bp
+00ed  c3                     ret 
+00ee  90                     nop 
+00ef  2bc0                   sub ax, ax
+00f1  50                     push ax
+00f2  b80700                 mov ax, 7
+00f5  50                     push ax
+00f6  ff7604                 push word ptr [bp + 4]
+00f9  e80d6b                 call 0x6c09
+00fc  83c406                 add sp, 6
+00ff  8946fc                 mov word ptr [bp - 4], ax
+0102  8956fe                 mov word ptr [bp - 2], dx
+0105  0bd0                   or dx, ax
+0107  7517                   jne 0x120
+0109  b8ffff                 mov ax, 0xffff
+010c  50                     push ax
+010d  b80300                 mov ax, 3
+0110  50                     push ax
+0111  ff7604                 push word ptr [bp + 4]
+0114  e8f26a                 call 0x6c09
+0117  83c406                 add sp, 6
+011a  8946fc                 mov word ptr [bp - 4], ax
+011d  8956fe                 mov word ptr [bp - 2], dx
+0120  c45efc                 les bx, ptr [bp - 4]
+0123  26c6470403             mov byte ptr es:[bx + 4], 3
+0128  8b4608                 mov ax, word ptr [bp + 8]
+012b  26894706               mov word ptr es:[bx + 6], ax
+012f  8b460a                 mov ax, word ptr [bp + 0xa]
+0132  26894708               mov word ptr es:[bx + 8], ax
+0136  8a4606                 mov al, byte ptr [bp + 6]
+0139  26884705               mov byte ptr es:[bx + 5], al
+013d  ff069807               inc word ptr [0x798]
+0141  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0146  803e360800             cmp byte ptr [0x836], 0
+014b  7416                   je 0x163
+014d  8b5e04                 mov bx, word ptr [bp + 4]
+0150  8a07                   mov al, byte ptr [bx]
+0152  2ae4                   sub ah, ah
+0154  50                     push ax
+0155  2bc0                   sub ax, ax
+0157  50                     push ax
+0158  ff366027               push word ptr [0x2760]
+015c  ff365e27               push word ptr [0x275e]
+0160  e8320b                 call 0xc95
+0163  8be5                   mov sp, bp
+0165  5d                     pop bp
+0166  c3                     ret 
+0167  55                     push bp
+0168  8bec                   mov bp, sp
+016a  ff7606                 push word ptr [bp + 6]
+
+===== start 0x188
+0000  1e                     push ds
+0001  0e                     push cs
+0002  1f                     pop ds
+0003  32ff                   xor bh, bh
+0005  8adc                   mov bl, ah
+0007  80ec10                 sub ah, 0x10
+000a  770d                   ja 0x19
+000c  d0e3                   shl bl, 1
+000e  ff971e00               call word ptr [bx + 0x1e]
+0012  1f                     pop ds
+0013  5f                     pop di
+0014  5e                     pop si
+0015  5a                     pop dx
+0016  59                     pop cx
+0017  5b                     pop bx
+0018  cf                     iret 
+0019  80eb20                 sub bl, 0x20
+001c  7204                   jb 0x22
+001e  8807                   mov byte ptr [bx], al
+0020  ebf0                   jmp 0x12
+0022  8adc                   mov bl, ah
+0024  8a07                   mov al, byte ptr [bx]
+0026  ebea                   jmp 0x12
+0028  b90f00                 mov cx, 0xf
+002b  bb2800                 mov bx, 0x28
+002e  f6e9                   imul cl
+0030  03d8                   add bx, ax
+0032  be0a00                 mov si, 0xa
+0035  882e0100               mov byte ptr [1], ch
+0039  8a07                   mov al, byte ptr [bx]
+003b  8804                   mov byte ptr [si], al
+003d  43                     inc bx
+003e  46                     inc si
+003f  e2f8                   loop 0x39
+0041  a11700                 mov ax, word ptr [0x17]
+0044  a30800                 mov word ptr [8], ax
+0047  fe0e0100               dec byte ptr [1]
+004b  c3                     ret 
+004c  b90200                 mov cx, 2
+004f  8afd                   mov bh, ch
+0051  a00200                 mov al, byte ptr [2]
+0054  00060600               add byte ptr [6], al
+0058  383e0100               cmp byte ptr [1], bh
+005c  744c                   je 0xaa
+005e  fe0e1600               dec byte ptr [0x16]
+0062  7506                   jne 0x6a
+0064  883e0100               mov byte ptr [1], bh
+0068  eb40                   jmp 0xaa
+006a  a11700                 mov ax, word ptr [0x17]
+006d  fe0e0900               dec byte ptr [9]
+0071  7516                   jne 0x89
+0073  88260900               mov byte ptr [9], ah
+0077  d00e1400               ror byte ptr [0x14], 1
+007b  8b161000               mov dx, word ptr [0x10]
+007f  7204                   jb 0x85
+0081  8b161200               mov dx, word ptr [0x12]
+0085  01160c00               add word ptr [0xc], dx
+0089  8b160c00               mov dx, word ptr [0xc]
+008d  03160a00               add dx, word ptr [0xa]
+0091  fe0e0800               dec byte ptr [8]
+0095  7507                   jne 0x9e
+0097  a20800                 mov byte ptr [8], al
+009a  8b160e00               mov dx, word ptr [0xe]
+009e  89160c00               mov word ptr [0xc], dx
+00a2  d00e1500               ror byte ptr [0x15], 1
+00a6  7202                   jb 0xaa
+00a8  8bca                   mov cx, dx
+00aa  390e1a00               cmp word ptr [0x1a], cx
+00ae  7410                   je 0xc0
+00b0  b0b6                   mov al, 0xb6
+00b2  e643                   out 0x43, al
+00b4  8ac1                   mov al, cl
+00b6  e642                   out 0x42, al
+00b8  8ac5                   mov al, ch
+00ba  e642                   out 0x42, al
+00bc  890e1a00               mov word ptr [0x1a], cx
+00c0  e461                   in al, 0x61
+00c2  0c03                   or al, 3
+00c4  e661                   out 0x61, al
+00c6  c3                     ret 
+00c7  32c0                   xor al, al
+00c9  a20100                 mov byte ptr [1], al
+00cc  c3                     ret 
+00cd  90                     nop 
+00ce  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d3  d07418                 sal byte ptr [si + 0x18], 1
+00d6  ff064007               inc word ptr [0x740]
+00da  8b4604                 mov ax, word ptr [bp + 4]
+00dd  40                     inc ax
+00de  50                     push ax
+00df  b8e807                 mov ax, 0x7e8
+00e2  50                     push ax
+00e3  e8d89e                 call 0xffff9fbe
+00e6  83c404                 add sp, 4
+00e9  8be5                   mov sp, bp
+00eb  5d                     pop bp
+00ec  c3                     ret 
+00ed  90                     nop 
+00ee  2bc0                   sub ax, ax
+00f0  50                     push ax
+00f1  b80700                 mov ax, 7
+00f4  50                     push ax
+00f5  ff7604                 push word ptr [bp + 4]
+00f8  e80d6b                 call 0x6c08
+00fb  83c406                 add sp, 6
+00fe  8946fc                 mov word ptr [bp - 4], ax
+0101  8956fe                 mov word ptr [bp - 2], dx
+0104  0bd0                   or dx, ax
+0106  7517                   jne 0x11f
+0108  b8ffff                 mov ax, 0xffff
+010b  50                     push ax
+010c  b80300                 mov ax, 3
+010f  50                     push ax
+0110  ff7604                 push word ptr [bp + 4]
+0113  e8f26a                 call 0x6c08
+0116  83c406                 add sp, 6
+0119  8946fc                 mov word ptr [bp - 4], ax
+011c  8956fe                 mov word ptr [bp - 2], dx
+011f  c45efc                 les bx, ptr [bp - 4]
+0122  26c6470403             mov byte ptr es:[bx + 4], 3
+0127  8b4608                 mov ax, word ptr [bp + 8]
+012a  26894706               mov word ptr es:[bx + 6], ax
+012e  8b460a                 mov ax, word ptr [bp + 0xa]
+0131  26894708               mov word ptr es:[bx + 8], ax
+0135  8a4606                 mov al, byte ptr [bp + 6]
+0138  26884705               mov byte ptr es:[bx + 5], al
+013c  ff069807               inc word ptr [0x798]
+0140  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0145  803e360800             cmp byte ptr [0x836], 0
+014a  7416                   je 0x162
+014c  8b5e04                 mov bx, word ptr [bp + 4]
+014f  8a07                   mov al, byte ptr [bx]
+0151  2ae4                   sub ah, ah
+0153  50                     push ax
+0154  2bc0                   sub ax, ax
+0156  50                     push ax
+0157  ff366027               push word ptr [0x2760]
+015b  ff365e27               push word ptr [0x275e]
+015f  e8320b                 call 0xc94
+0162  8be5                   mov sp, bp
+0164  5d                     pop bp
+0165  c3                     ret 
+0166  55                     push bp
+0167  8bec                   mov bp, sp
+0169  ff7606                 push word ptr [bp + 6]
+
+===== start 0x189
+0000  0e                     push cs
+0001  1f                     pop ds
+0002  32ff                   xor bh, bh
+0004  8adc                   mov bl, ah
+0006  80ec10                 sub ah, 0x10
+0009  770d                   ja 0x18
+000b  d0e3                   shl bl, 1
+000d  ff971e00               call word ptr [bx + 0x1e]
+0011  1f                     pop ds
+0012  5f                     pop di
+0013  5e                     pop si
+0014  5a                     pop dx
+0015  59                     pop cx
+0016  5b                     pop bx
+0017  cf                     iret 
+0018  80eb20                 sub bl, 0x20
+001b  7204                   jb 0x21
+001d  8807                   mov byte ptr [bx], al
+001f  ebf0                   jmp 0x11
+0021  8adc                   mov bl, ah
+0023  8a07                   mov al, byte ptr [bx]
+0025  ebea                   jmp 0x11
+0027  b90f00                 mov cx, 0xf
+002a  bb2800                 mov bx, 0x28
+002d  f6e9                   imul cl
+002f  03d8                   add bx, ax
+0031  be0a00                 mov si, 0xa
+0034  882e0100               mov byte ptr [1], ch
+0038  8a07                   mov al, byte ptr [bx]
+003a  8804                   mov byte ptr [si], al
+003c  43                     inc bx
+003d  46                     inc si
+003e  e2f8                   loop 0x38
+0040  a11700                 mov ax, word ptr [0x17]
+0043  a30800                 mov word ptr [8], ax
+0046  fe0e0100               dec byte ptr [1]
+004a  c3                     ret 
+004b  b90200                 mov cx, 2
+004e  8afd                   mov bh, ch
+0050  a00200                 mov al, byte ptr [2]
+0053  00060600               add byte ptr [6], al
+0057  383e0100               cmp byte ptr [1], bh
+005b  744c                   je 0xa9
+005d  fe0e1600               dec byte ptr [0x16]
+0061  7506                   jne 0x69
+0063  883e0100               mov byte ptr [1], bh
+0067  eb40                   jmp 0xa9
+0069  a11700                 mov ax, word ptr [0x17]
+006c  fe0e0900               dec byte ptr [9]
+0070  7516                   jne 0x88
+0072  88260900               mov byte ptr [9], ah
+0076  d00e1400               ror byte ptr [0x14], 1
+007a  8b161000               mov dx, word ptr [0x10]
+007e  7204                   jb 0x84
+0080  8b161200               mov dx, word ptr [0x12]
+0084  01160c00               add word ptr [0xc], dx
+0088  8b160c00               mov dx, word ptr [0xc]
+008c  03160a00               add dx, word ptr [0xa]
+0090  fe0e0800               dec byte ptr [8]
+0094  7507                   jne 0x9d
+0096  a20800                 mov byte ptr [8], al
+0099  8b160e00               mov dx, word ptr [0xe]
+009d  89160c00               mov word ptr [0xc], dx
+00a1  d00e1500               ror byte ptr [0x15], 1
+00a5  7202                   jb 0xa9
+00a7  8bca                   mov cx, dx
+00a9  390e1a00               cmp word ptr [0x1a], cx
+00ad  7410                   je 0xbf
+00af  b0b6                   mov al, 0xb6
+00b1  e643                   out 0x43, al
+00b3  8ac1                   mov al, cl
+00b5  e642                   out 0x42, al
+00b7  8ac5                   mov al, ch
+00b9  e642                   out 0x42, al
+00bb  890e1a00               mov word ptr [0x1a], cx
+00bf  e461                   in al, 0x61
+00c1  0c03                   or al, 3
+00c3  e661                   out 0x61, al
+00c5  c3                     ret 
+00c6  32c0                   xor al, al
+00c8  a20100                 mov byte ptr [1], al
+00cb  c3                     ret 
+00cc  90                     nop 
+00cd  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d2  d07418                 sal byte ptr [si + 0x18], 1
+00d5  ff064007               inc word ptr [0x740]
+00d9  8b4604                 mov ax, word ptr [bp + 4]
+00dc  40                     inc ax
+00dd  50                     push ax
+00de  b8e807                 mov ax, 0x7e8
+00e1  50                     push ax
+00e2  e8d89e                 call 0xffff9fbd
+00e5  83c404                 add sp, 4
+00e8  8be5                   mov sp, bp
+00ea  5d                     pop bp
+00eb  c3                     ret 
+00ec  90                     nop 
+00ed  2bc0                   sub ax, ax
+00ef  50                     push ax
+00f0  b80700                 mov ax, 7
+00f3  50                     push ax
+00f4  ff7604                 push word ptr [bp + 4]
+00f7  e80d6b                 call 0x6c07
+00fa  83c406                 add sp, 6
+00fd  8946fc                 mov word ptr [bp - 4], ax
+0100  8956fe                 mov word ptr [bp - 2], dx
+0103  0bd0                   or dx, ax
+0105  7517                   jne 0x11e
+0107  b8ffff                 mov ax, 0xffff
+010a  50                     push ax
+010b  b80300                 mov ax, 3
+010e  50                     push ax
+010f  ff7604                 push word ptr [bp + 4]
+0112  e8f26a                 call 0x6c07
+0115  83c406                 add sp, 6
+0118  8946fc                 mov word ptr [bp - 4], ax
+011b  8956fe                 mov word ptr [bp - 2], dx
+011e  c45efc                 les bx, ptr [bp - 4]
+0121  26c6470403             mov byte ptr es:[bx + 4], 3
+0126  8b4608                 mov ax, word ptr [bp + 8]
+0129  26894706               mov word ptr es:[bx + 6], ax
+012d  8b460a                 mov ax, word ptr [bp + 0xa]
+0130  26894708               mov word ptr es:[bx + 8], ax
+0134  8a4606                 mov al, byte ptr [bp + 6]
+0137  26884705               mov byte ptr es:[bx + 5], al
+013b  ff069807               inc word ptr [0x798]
+013f  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0144  803e360800             cmp byte ptr [0x836], 0
+0149  7416                   je 0x161
+014b  8b5e04                 mov bx, word ptr [bp + 4]
+014e  8a07                   mov al, byte ptr [bx]
+0150  2ae4                   sub ah, ah
+0152  50                     push ax
+0153  2bc0                   sub ax, ax
+0155  50                     push ax
+0156  ff366027               push word ptr [0x2760]
+015a  ff365e27               push word ptr [0x275e]
+015e  e8320b                 call 0xc93
+0161  8be5                   mov sp, bp
+0163  5d                     pop bp
+0164  c3                     ret 
+0165  55                     push bp
+0166  8bec                   mov bp, sp
+0168  ff7606                 push word ptr [bp + 6]
+
+===== start 0x18a
+0000  1f                     pop ds
+0001  32ff                   xor bh, bh
+0003  8adc                   mov bl, ah
+0005  80ec10                 sub ah, 0x10
+0008  770d                   ja 0x17
+000a  d0e3                   shl bl, 1
+000c  ff971e00               call word ptr [bx + 0x1e]
+0010  1f                     pop ds
+0011  5f                     pop di
+0012  5e                     pop si
+0013  5a                     pop dx
+0014  59                     pop cx
+0015  5b                     pop bx
+0016  cf                     iret 
+0017  80eb20                 sub bl, 0x20
+001a  7204                   jb 0x20
+001c  8807                   mov byte ptr [bx], al
+001e  ebf0                   jmp 0x10
+0020  8adc                   mov bl, ah
+0022  8a07                   mov al, byte ptr [bx]
+0024  ebea                   jmp 0x10
+0026  b90f00                 mov cx, 0xf
+0029  bb2800                 mov bx, 0x28
+002c  f6e9                   imul cl
+002e  03d8                   add bx, ax
+0030  be0a00                 mov si, 0xa
+0033  882e0100               mov byte ptr [1], ch
+0037  8a07                   mov al, byte ptr [bx]
+0039  8804                   mov byte ptr [si], al
+003b  43                     inc bx
+003c  46                     inc si
+003d  e2f8                   loop 0x37
+003f  a11700                 mov ax, word ptr [0x17]
+0042  a30800                 mov word ptr [8], ax
+0045  fe0e0100               dec byte ptr [1]
+0049  c3                     ret 
+004a  b90200                 mov cx, 2
+004d  8afd                   mov bh, ch
+004f  a00200                 mov al, byte ptr [2]
+0052  00060600               add byte ptr [6], al
+0056  383e0100               cmp byte ptr [1], bh
+005a  744c                   je 0xa8
+005c  fe0e1600               dec byte ptr [0x16]
+0060  7506                   jne 0x68
+0062  883e0100               mov byte ptr [1], bh
+0066  eb40                   jmp 0xa8
+0068  a11700                 mov ax, word ptr [0x17]
+006b  fe0e0900               dec byte ptr [9]
+006f  7516                   jne 0x87
+0071  88260900               mov byte ptr [9], ah
+0075  d00e1400               ror byte ptr [0x14], 1
+0079  8b161000               mov dx, word ptr [0x10]
+007d  7204                   jb 0x83
+007f  8b161200               mov dx, word ptr [0x12]
+0083  01160c00               add word ptr [0xc], dx
+0087  8b160c00               mov dx, word ptr [0xc]
+008b  03160a00               add dx, word ptr [0xa]
+008f  fe0e0800               dec byte ptr [8]
+0093  7507                   jne 0x9c
+0095  a20800                 mov byte ptr [8], al
+0098  8b160e00               mov dx, word ptr [0xe]
+009c  89160c00               mov word ptr [0xc], dx
+00a0  d00e1500               ror byte ptr [0x15], 1
+00a4  7202                   jb 0xa8
+00a6  8bca                   mov cx, dx
+00a8  390e1a00               cmp word ptr [0x1a], cx
+00ac  7410                   je 0xbe
+00ae  b0b6                   mov al, 0xb6
+00b0  e643                   out 0x43, al
+00b2  8ac1                   mov al, cl
+00b4  e642                   out 0x42, al
+00b6  8ac5                   mov al, ch
+00b8  e642                   out 0x42, al
+00ba  890e1a00               mov word ptr [0x1a], cx
+00be  e461                   in al, 0x61
+00c0  0c03                   or al, 3
+00c2  e661                   out 0x61, al
+00c4  c3                     ret 
+00c5  32c0                   xor al, al
+00c7  a20100                 mov byte ptr [1], al
+00ca  c3                     ret 
+00cb  90                     nop 
+00cc  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d1  d07418                 sal byte ptr [si + 0x18], 1
+00d4  ff064007               inc word ptr [0x740]
+00d8  8b4604                 mov ax, word ptr [bp + 4]
+00db  40                     inc ax
+00dc  50                     push ax
+00dd  b8e807                 mov ax, 0x7e8
+00e0  50                     push ax
+00e1  e8d89e                 call 0xffff9fbc
+00e4  83c404                 add sp, 4
+00e7  8be5                   mov sp, bp
+00e9  5d                     pop bp
+00ea  c3                     ret 
+00eb  90                     nop 
+00ec  2bc0                   sub ax, ax
+00ee  50                     push ax
+00ef  b80700                 mov ax, 7
+00f2  50                     push ax
+00f3  ff7604                 push word ptr [bp + 4]
+00f6  e80d6b                 call 0x6c06
+00f9  83c406                 add sp, 6
+00fc  8946fc                 mov word ptr [bp - 4], ax
+00ff  8956fe                 mov word ptr [bp - 2], dx
+0102  0bd0                   or dx, ax
+0104  7517                   jne 0x11d
+0106  b8ffff                 mov ax, 0xffff
+0109  50                     push ax
+010a  b80300                 mov ax, 3
+010d  50                     push ax
+010e  ff7604                 push word ptr [bp + 4]
+0111  e8f26a                 call 0x6c06
+0114  83c406                 add sp, 6
+0117  8946fc                 mov word ptr [bp - 4], ax
+011a  8956fe                 mov word ptr [bp - 2], dx
+011d  c45efc                 les bx, ptr [bp - 4]
+0120  26c6470403             mov byte ptr es:[bx + 4], 3
+0125  8b4608                 mov ax, word ptr [bp + 8]
+0128  26894706               mov word ptr es:[bx + 6], ax
+012c  8b460a                 mov ax, word ptr [bp + 0xa]
+012f  26894708               mov word ptr es:[bx + 8], ax
+0133  8a4606                 mov al, byte ptr [bp + 6]
+0136  26884705               mov byte ptr es:[bx + 5], al
+013a  ff069807               inc word ptr [0x798]
+013e  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0143  803e360800             cmp byte ptr [0x836], 0
+0148  7416                   je 0x160
+014a  8b5e04                 mov bx, word ptr [bp + 4]
+014d  8a07                   mov al, byte ptr [bx]
+014f  2ae4                   sub ah, ah
+0151  50                     push ax
+0152  2bc0                   sub ax, ax
+0154  50                     push ax
+0155  ff366027               push word ptr [0x2760]
+0159  ff365e27               push word ptr [0x275e]
+015d  e8320b                 call 0xc92
+0160  8be5                   mov sp, bp
+0162  5d                     pop bp
+0163  c3                     ret 
+0164  55                     push bp
+0165  8bec                   mov bp, sp
+0167  ff7606                 push word ptr [bp + 6]
+
+===== start 0x18b
+0000  32ff                   xor bh, bh
+0002  8adc                   mov bl, ah
+0004  80ec10                 sub ah, 0x10
+0007  770d                   ja 0x16
+0009  d0e3                   shl bl, 1
+000b  ff971e00               call word ptr [bx + 0x1e]
+000f  1f                     pop ds
+0010  5f                     pop di
+0011  5e                     pop si
+0012  5a                     pop dx
+0013  59                     pop cx
+0014  5b                     pop bx
+0015  cf                     iret 
+0016  80eb20                 sub bl, 0x20
+0019  7204                   jb 0x1f
+001b  8807                   mov byte ptr [bx], al
+001d  ebf0                   jmp 0xf
+001f  8adc                   mov bl, ah
+0021  8a07                   mov al, byte ptr [bx]
+0023  ebea                   jmp 0xf
+0025  b90f00                 mov cx, 0xf
+0028  bb2800                 mov bx, 0x28
+002b  f6e9                   imul cl
+002d  03d8                   add bx, ax
+002f  be0a00                 mov si, 0xa
+0032  882e0100               mov byte ptr [1], ch
+0036  8a07                   mov al, byte ptr [bx]
+0038  8804                   mov byte ptr [si], al
+003a  43                     inc bx
+003b  46                     inc si
+003c  e2f8                   loop 0x36
+003e  a11700                 mov ax, word ptr [0x17]
+0041  a30800                 mov word ptr [8], ax
+0044  fe0e0100               dec byte ptr [1]
+0048  c3                     ret 
+0049  b90200                 mov cx, 2
+004c  8afd                   mov bh, ch
+004e  a00200                 mov al, byte ptr [2]
+0051  00060600               add byte ptr [6], al
+0055  383e0100               cmp byte ptr [1], bh
+0059  744c                   je 0xa7
+005b  fe0e1600               dec byte ptr [0x16]
+005f  7506                   jne 0x67
+0061  883e0100               mov byte ptr [1], bh
+0065  eb40                   jmp 0xa7
+0067  a11700                 mov ax, word ptr [0x17]
+006a  fe0e0900               dec byte ptr [9]
+006e  7516                   jne 0x86
+0070  88260900               mov byte ptr [9], ah
+0074  d00e1400               ror byte ptr [0x14], 1
+0078  8b161000               mov dx, word ptr [0x10]
+007c  7204                   jb 0x82
+007e  8b161200               mov dx, word ptr [0x12]
+0082  01160c00               add word ptr [0xc], dx
+0086  8b160c00               mov dx, word ptr [0xc]
+008a  03160a00               add dx, word ptr [0xa]
+008e  fe0e0800               dec byte ptr [8]
+0092  7507                   jne 0x9b
+0094  a20800                 mov byte ptr [8], al
+0097  8b160e00               mov dx, word ptr [0xe]
+009b  89160c00               mov word ptr [0xc], dx
+009f  d00e1500               ror byte ptr [0x15], 1
+00a3  7202                   jb 0xa7
+00a5  8bca                   mov cx, dx
+00a7  390e1a00               cmp word ptr [0x1a], cx
+00ab  7410                   je 0xbd
+00ad  b0b6                   mov al, 0xb6
+00af  e643                   out 0x43, al
+00b1  8ac1                   mov al, cl
+00b3  e642                   out 0x42, al
+00b5  8ac5                   mov al, ch
+00b7  e642                   out 0x42, al
+00b9  890e1a00               mov word ptr [0x1a], cx
+00bd  e461                   in al, 0x61
+00bf  0c03                   or al, 3
+00c1  e661                   out 0x61, al
+00c3  c3                     ret 
+00c4  32c0                   xor al, al
+00c6  a20100                 mov byte ptr [1], al
+00c9  c3                     ret 
+00ca  90                     nop 
+00cb  6b83c4060b             imul ax, word ptr [bp + di + 0x6c4], 0xb
+00d0  d07418                 sal byte ptr [si + 0x18], 1
+00d3  ff064007               inc word ptr [0x740]
+00d7  8b4604                 mov ax, word ptr [bp + 4]
+00da  40                     inc ax
+00db  50                     push ax
+00dc  b8e807                 mov ax, 0x7e8
+00df  50                     push ax
+00e0  e8d89e                 call 0xffff9fbb
+00e3  83c404                 add sp, 4
+00e6  8be5                   mov sp, bp
+00e8  5d                     pop bp
+00e9  c3                     ret 
+00ea  90                     nop 
+00eb  2bc0                   sub ax, ax
+00ed  50                     push ax
+00ee  b80700                 mov ax, 7
+00f1  50                     push ax
+00f2  ff7604                 push word ptr [bp + 4]
+00f5  e80d6b                 call 0x6c05
+00f8  83c406                 add sp, 6
+00fb  8946fc                 mov word ptr [bp - 4], ax
+00fe  8956fe                 mov word ptr [bp - 2], dx
+0101  0bd0                   or dx, ax
+0103  7517                   jne 0x11c
+0105  b8ffff                 mov ax, 0xffff
+0108  50                     push ax
+0109  b80300                 mov ax, 3
+010c  50                     push ax
+010d  ff7604                 push word ptr [bp + 4]
+0110  e8f26a                 call 0x6c05
+0113  83c406                 add sp, 6
+0116  8946fc                 mov word ptr [bp - 4], ax
+0119  8956fe                 mov word ptr [bp - 2], dx
+011c  c45efc                 les bx, ptr [bp - 4]
+011f  26c6470403             mov byte ptr es:[bx + 4], 3
+0124  8b4608                 mov ax, word ptr [bp + 8]
+0127  26894706               mov word ptr es:[bx + 6], ax
+012b  8b460a                 mov ax, word ptr [bp + 0xa]
+012e  26894708               mov word ptr es:[bx + 8], ax
+0132  8a4606                 mov al, byte ptr [bp + 6]
+0135  26884705               mov byte ptr es:[bx + 5], al
+0139  ff069807               inc word ptr [0x798]
+013d  26c6470aff             mov byte ptr es:[bx + 0xa], 0xff
+0142  803e360800             cmp byte ptr [0x836], 0
+0147  7416                   je 0x15f
+0149  8b5e04                 mov bx, word ptr [bp + 4]
+014c  8a07                   mov al, byte ptr [bx]
+014e  2ae4                   sub ah, ah
+0150  50                     push ax
+0151  2bc0                   sub ax, ax
+0153  50                     push ax
+0154  ff366027               push word ptr [0x2760]
+0158  ff365e27               push word ptr [0x275e]
+015c  e8320b                 call 0xc91
+015f  8be5                   mov sp, bp
+0161  5d                     pop bp
+0162  c3                     ret 
+0163  55                     push bp
+0164  8bec                   mov bp, sp
+0166  ff7606                 push word ptr [bp + 6]
+

@@ -1,0 +1,34 @@
+f000 0349 push bx                ax=0000 bx=1786 si=1C2C di=05AC
+f000 034A push si                ax=0000 bx=1786 si=1C2C di=05AC
+f000 034B mov                    ax=0029 bx=1786 si=1C2C di=05AC
+f000 034D nop                    ax=0029 bx=1786 si=1C2C di=05AC
+f000 034E nop                    ax=0029 bx=1786 si=1C2C di=05AC
+f000 034F add                    ax=0011 bx=1786 si=1C2C di=05AC
+f000 0352 nop                    ax=0011 bx=1786 si=1C2C di=05AC
+f000 0353 add                    ax=0015 bx=1786 si=1C2C di=05AC
+f000 0355 xor                    ax=0015 bx=1786 si=1C2C di=05AC
+f000 0357 mov                    ax=0015 bx=1786 si=0015 di=05AC
+f000 0359 mov                    ax=0015 bx=1701 si=0015 di=05AC
+f000 035D mov                    ax=0009 bx=1701 si=0015 di=05AC
+f000 0361 add                    ax=0012 bx=1701 si=0015 di=05AC
+f000 0363 add                    ax=0024 bx=1701 si=0015 di=05AC
+f000 0365 add                    ax=0048 bx=1701 si=0015 di=05AC
+f000 0367 add                    ax=0090 bx=1701 si=0015 di=05AC
+f000 0369 add                    ax=0120 bx=1701 si=0015 di=05AC
+f000 036B mov si,imm16           ax=0120 bx=1701 si=0927 di=05AC
+f000 036E add                    ax=0120 bx=1701 si=0A47 di=05AC
+f000 0370 lodsw                  ax=FE44 bx=1701 si=0A49 di=05AC
+f000 0371 inc/dec byte           ax=FE44 bx=1700 si=0A49 di=05AC
+f000 0373 or                     ax=FE44 bx=1700 si=0A49 di=05AC
+f000 0375 jge                    ax=FE44 bx=1700 si=0A49 di=05AC
+f000 0377 inc/dec byte           ax=FE44 bx=1701 si=0A49 di=05AC
+f000 0379 or                     ax=FE44 bx=1701 si=0A49 di=05AC
+f000 037B jge                    ax=FE44 bx=1701 si=0A49 di=05AC
+f000 0381 push ax                ax=FE44 bx=1701 si=0A49 di=05AC
+f000 0382 mov                    ax=4444 bx=1701 si=0A49 di=05AC
+f000 0384 mov                    ax=4400 bx=1701 si=0A49 di=05AC
+f000 0387 nop                    ax=4400 bx=1701 si=0A49 di=05AC
+f000 0388 add                    ax=44A0 bx=1701 si=0A49 di=05AC
+f000 038A call                   ax=44A0 bx=1701 si=0A49 di=05AC
+f000 038D pop ax                 ax=FE44 bx=1701 si=0A49 di=05AC
+f000 038E and                    ax=0244 bx=1701 si=0A49 di=05AC

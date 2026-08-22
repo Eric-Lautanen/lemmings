@@ -1,0 +1,3 @@
+0457 cmp            ax=0000 bx=0000 si=0000 di=0000 | ED=00 EE=00 EF=00
+045C jnz            ax=0000 bx=0000 si=0000 di=0000 | ED=00 EE=00 EF=00
+0464 cmp            ax=0002 bx=0000 si=0000 di=0000 | ED=00 EE=00 EF=00

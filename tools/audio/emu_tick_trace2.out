@@ -1,0 +1,25 @@
+0177 cmp          ax=3206 bx=54E1 si=03F6 di=064C
+017B nop          ax=3206 bx=54E1 si=03F6 di=064C
+017C jz           ax=3206 bx=54E1 si=03F6 di=064C
+017E mov          ax=3206 bx=5619 si=03F6 di=064C
+0181 nop          ax=3206 bx=5619 si=03F6 di=064C
+0182 cmp          ax=3206 bx=5619 si=03F6 di=064C
+0186 nop          ax=3206 bx=5619 si=03F6 di=064C
+0187 jz           ax=3206 bx=5619 si=03F6 di=064C
+0190 inc/dec byte ax=3206 bx=5619 si=03F6 di=064C
+0193 nop          ax=3206 bx=5619 si=03F6 di=064C
+0194 jz           ax=3206 bx=5619 si=03F6 di=064C
+0196 call         ax=3206 bx=5619 si=03F6 di=064C
+0339 mov          ax=3201 bx=5619 si=03F6 di=064C
+033C nop          ax=3201 bx=5619 si=03F6 di=064C
+033D or           ax=3201 bx=5619 si=03F6 di=064C
+033F jz           ax=3201 bx=5619 si=03F6 di=064C
+0341 add          ax=3205 bx=5619 si=03F6 di=064C
+0343 nop          ax=3205 bx=5619 si=03F6 di=064C
+0344 nop          ax=3205 bx=5619 si=03F6 di=064C
+0345 mov          ax=3205 bx=5619 si=03F6 di=064C
+0347 nop          ax=3205 bx=5619 si=03F6 di=064C
+0348 nop          ax=3205 bx=5619 si=03F6 di=064C
+0349 push bx      ax=3205 bx=5619 si=03F6 di=064C
+034A push si      ax=3205 bx=5619 si=03F6 di=064C
+034B mov          ax=3205 bx=5619 si=03F6 di=064C

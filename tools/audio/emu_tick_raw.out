@@ -1,0 +1,120 @@
+0177 cmp            ax=3206 bx=0C49 si=03F6 di=05C0
+017B nop            ax=3206 bx=0C49 si=03F6 di=05C0
+017C jz             ax=3206 bx=0C49 si=03F6 di=05C0
+017E mov            ax=3206 bx=0D5A si=03F6 di=05C0
+0181 nop            ax=3206 bx=0D5A si=03F6 di=05C0
+0182 cmp            ax=3206 bx=0D5A si=03F6 di=05C0
+0186 nop            ax=3206 bx=0D5A si=03F6 di=05C0
+0187 jz             ax=3206 bx=0D5A si=03F6 di=05C0
+0189 cmp            ax=3206 bx=0D5A si=03F6 di=05C0
+018E jnz            ax=3206 bx=0D5A si=03F6 di=05C0
+019C nop            ax=3206 bx=0D5A si=03F6 di=05C0
+019D ret            ax=3206 bx=0D5A si=03F6 di=05C0
+0137 mov di,imm16   ax=3206 bx=0D5A si=03F6 di=05D4
+013A call           ax=3206 bx=0D5A si=03F6 di=05D4
+0177 cmp            ax=3206 bx=0D5A si=03F6 di=05D4
+017B nop            ax=3206 bx=0D5A si=03F6 di=05D4
+017C jz             ax=3206 bx=0D5A si=03F6 di=05D4
+017E mov            ax=3206 bx=0DB8 si=03F6 di=05D4
+0181 nop            ax=3206 bx=0DB8 si=03F6 di=05D4
+0182 cmp            ax=3206 bx=0DB8 si=03F6 di=05D4
+0186 nop            ax=3206 bx=0DB8 si=03F6 di=05D4
+0187 jz             ax=3206 bx=0DB8 si=03F6 di=05D4
+0189 cmp            ax=3206 bx=0DB8 si=03F6 di=05D4
+018E jnz            ax=3206 bx=0DB8 si=03F6 di=05D4
+019C nop            ax=3206 bx=0DB8 si=03F6 di=05D4
+019D ret            ax=3206 bx=0DB8 si=03F6 di=05D4
+013D mov di,imm16   ax=3206 bx=0DB8 si=03F6 di=05E8
+0140 call           ax=3206 bx=0DB8 si=03F6 di=05E8
+0177 cmp            ax=3206 bx=0DB8 si=03F6 di=05E8
+017B nop            ax=3206 bx=0DB8 si=03F6 di=05E8
+017C jz             ax=3206 bx=0DB8 si=03F6 di=05E8
+017E mov            ax=3206 bx=54E1 si=03F6 di=05E8
+0181 nop            ax=3206 bx=54E1 si=03F6 di=05E8
+0182 cmp            ax=3206 bx=54E1 si=03F6 di=05E8
+0186 nop            ax=3206 bx=54E1 si=03F6 di=05E8
+0187 jz             ax=3206 bx=54E1 si=03F6 di=05E8
+0189 cmp            ax=3206 bx=54E1 si=03F6 di=05E8
+018E jnz            ax=3206 bx=54E1 si=03F6 di=05E8
+019C nop            ax=3206 bx=54E1 si=03F6 di=05E8
+019D ret            ax=3206 bx=54E1 si=03F6 di=05E8
+0143 mov di,imm16   ax=3206 bx=54E1 si=03F6 di=05FC
+0146 call           ax=3206 bx=54E1 si=03F6 di=05FC
+0177 cmp            ax=3206 bx=54E1 si=03F6 di=05FC
+017B nop            ax=3206 bx=54E1 si=03F6 di=05FC
+017C jz             ax=3206 bx=54E1 si=03F6 di=05FC
+019D ret            ax=3206 bx=54E1 si=03F6 di=05FC
+0149 mov di,imm16   ax=3206 bx=54E1 si=03F6 di=0610
+014C call           ax=3206 bx=54E1 si=03F6 di=0610
+0177 cmp            ax=3206 bx=54E1 si=03F6 di=0610
+017B nop            ax=3206 bx=54E1 si=03F6 di=0610
+017C jz             ax=3206 bx=54E1 si=03F6 di=0610
+019D ret            ax=3206 bx=54E1 si=03F6 di=0610
+014F mov di,imm16   ax=3206 bx=54E1 si=03F6 di=0624
+0152 call           ax=3206 bx=54E1 si=03F6 di=0624
+0177 cmp            ax=3206 bx=54E1 si=03F6 di=0624
+017B nop            ax=3206 bx=54E1 si=03F6 di=0624
+017C jz             ax=3206 bx=54E1 si=03F6 di=0624
+019D ret            ax=3206 bx=54E1 si=03F6 di=0624
+0155 mov di,imm16   ax=3206 bx=54E1 si=03F6 di=0638
+0158 call           ax=3206 bx=54E1 si=03F6 di=0638
+0177 cmp            ax=3206 bx=54E1 si=03F6 di=0638
+017B nop            ax=3206 bx=54E1 si=03F6 di=0638
+017C jz             ax=3206 bx=54E1 si=03F6 di=0638
+019D ret            ax=3206 bx=54E1 si=03F6 di=0638
+015B mov di,imm16   ax=3206 bx=54E1 si=03F6 di=064C
+015E call           ax=3206 bx=54E1 si=03F6 di=064C
+0177 cmp            ax=3206 bx=54E1 si=03F6 di=064C
+017B nop            ax=3206 bx=54E1 si=03F6 di=064C
+017C jz             ax=3206 bx=54E1 si=03F6 di=064C
+017E mov            ax=3206 bx=5619 si=03F6 di=064C
+0181 nop            ax=3206 bx=5619 si=03F6 di=064C
+0182 cmp            ax=3206 bx=5619 si=03F6 di=064C
+0186 nop            ax=3206 bx=5619 si=03F6 di=064C
+0187 jz             ax=3206 bx=5619 si=03F6 di=064C
+0190 inc/dec byte   ax=3206 bx=5619 si=03F6 di=064C
+0193 nop            ax=3206 bx=5619 si=03F6 di=064C
+0194 jz             ax=3206 bx=5619 si=03F6 di=064C
+0196 call           ax=3206 bx=5619 si=03F6 di=064C
+0339 mov            ax=3201 bx=5619 si=03F6 di=064C
+033C nop            ax=3201 bx=5619 si=03F6 di=064C
+033D or             ax=3201 bx=5619 si=03F6 di=064C
+033F jz             ax=3201 bx=5619 si=03F6 di=064C
+0341 add            ax=3205 bx=5619 si=03F6 di=064C
+0343 nop            ax=3205 bx=5619 si=03F6 di=064C
+0344 nop            ax=3205 bx=5619 si=03F6 di=064C
+0345 mov            ax=3205 bx=5619 si=03F6 di=064C
+0347 nop            ax=3205 bx=5619 si=03F6 di=064C
+0348 nop            ax=3205 bx=5619 si=03F6 di=064C
+0349 push bx        ax=3205 bx=5619 si=03F6 di=064C
+034A push si        ax=3205 bx=5619 si=03F6 di=064C
+034B mov            ax=3205 bx=5619 si=03F6 di=064C
+034D nop            ax=3205 bx=5619 si=03F6 di=064C
+034E nop            ax=3205 bx=5619 si=03F6 di=064C
+034F add            ax=3235 bx=5619 si=03F6 di=064C
+0352 nop            ax=3235 bx=5619 si=03F6 di=064C
+0353 add            ax=3239 bx=5619 si=03F6 di=064C
+0355 xor            ax=0039 bx=5619 si=03F6 di=064C
+0357 mov            ax=0039 bx=5619 si=0039 di=064C
+0359 mov            ax=0039 bx=5604 si=0039 di=064C
+035D mov            ax=0009 bx=5604 si=0039 di=064C
+0361 add            ax=0012 bx=5604 si=0039 di=064C
+0363 add            ax=0024 bx=5604 si=0039 di=064C
+0365 add            ax=0048 bx=5604 si=0039 di=064C
+0367 add            ax=0090 bx=5604 si=0039 di=064C
+0369 add            ax=0120 bx=5604 si=0039 di=064C
+036B mov si,imm16   ax=0120 bx=5604 si=0927 di=064C
+036E add            ax=0120 bx=5604 si=0A47 di=064C
+0370 lodsw          ax=FE44 bx=5604 si=0A49 di=064C
+0371 inc/dec byte   ax=FE44 bx=5603 si=0A49 di=064C
+0373 or             ax=FE44 bx=5603 si=0A49 di=064C
+0375 jge            ax=FE44 bx=5603 si=0A49 di=064C
+0377 inc/dec byte   ax=FE44 bx=5604 si=0A49 di=064C
+0379 or             ax=FE44 bx=5604 si=0A49 di=064C
+037B jge            ax=FE44 bx=5604 si=0A49 di=064C
+0381 push ax        ax=FE44 bx=5604 si=0A49 di=064C
+0382 mov            ax=4444 bx=5604 si=0A49 di=064C
+0384 mov            ax=4408 bx=5604 si=0A49 di=064C
+0387 nop            ax=4408 bx=5604 si=0A49 di=064C
+0388 add            ax=44A8 bx=5604 si=0A49 di=064C
+038A call           ax=44A8 bx=5604 si=0A49 di=064C

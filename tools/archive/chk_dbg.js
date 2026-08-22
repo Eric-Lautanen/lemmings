@@ -1,0 +1,15 @@
+'use strict';
+const fs = require('fs');
+const vm = require('vm');
+global.window = {};
+vm.runInThisContext(fs.readFileSync('C:/github/Lemmings/build/assets.js', 'utf8'), { filename: 'assets.js' });
+vm.runInThisContext(fs.readFileSync('C:/github/Lemmings/web/game.js', 'utf8'), { filename: 'game.js' });
+const T = window._lemTest;
+T.resetLevel(6);
+const L = T.state.level;
+console.log('level:', L.idx, 'lems=', L.lems, 'rescueNeed=', L.rescueNeed, 'timelimit=', L.timelimit, 'rate=', L.rate);
+console.log('entrances=', L.entrances && L.entrances.length, 'order=', L.order && L.order.length, 'spawn=', L.spawnX, L.spawnY);
+console.log('state: pending=', T.state.pending, 'releaseT=', T.state.releaseT, 'entrance=', T.state.entrance, 'lems.len=', T.state.lems.length);
+for (let t = 0; t < 120; t++) T.stepSim(L);
+console.log('after 120: pending=', T.state.pending, 'releaseT=', T.state.releaseT, 'entrance=', T.state.entrance, 'released=', T.state.released, 'lems.len=', T.state.lems.length, 'timeLeft=', T.state.timeLeft.toFixed(2));
+console.log('lems:', T.state.lems.map(l => Math.round(l.x) + ',' + Math.round(l.y) + '/' + l.state).join('  '));

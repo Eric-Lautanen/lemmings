@@ -1,0 +1,32 @@
+init table 0x006D (27 words):
+  [00] reg=80 val=0F
+  [01] reg=8B val=0F
+  [02] reg=B0 val=00
+  [03] reg=81 val=0F
+  [04] reg=8C val=0F
+  [05] reg=B1 val=00
+  [06] reg=82 val=0F
+  [07] reg=8D val=0F
+  [08] reg=B2 val=00
+  [09] reg=83 val=0F
+  [0A] reg=90 val=0F
+  [0B] reg=B3 val=00
+  [0C] reg=84 val=0F
+  [0D] reg=91 val=0F
+  [0E] reg=B4 val=00
+  [0F] reg=85 val=0F
+  [10] reg=92 val=0F
+  [11] reg=B5 val=00
+  [12] reg=88 val=0F
+  [13] reg=93 val=0F
+  [14] reg=B6 val=00
+  [15] reg=89 val=0F
+  [16] reg=94 val=0F
+  [17] reg=B7 val=00
+  [18] reg=8A val=0F
+  [19] reg=95 val=0F
+  [1A] reg=B8 val=00
+
+detect 0x00A3 code: 1E 0E 1F BA 88 03 B8 04 60 E8 AA 04 B8 04 80 E8 A4 04 EC 50 B8 02 FF E8 9C 04 B8 04 21 E8 96 04 B9 2C 01 E2 FE EC 50 B8 04 60 E8 89 04 B8 04 80 E8 83 04 58 5B 24 E0 80 E3 E0 22 DB 75 08 3C C0 75 04 B0 01 1F CF 32 C0 1F CF 00 00 00 00 41 64 4C 69 62 20 4D 75 73 69 63 20 62 79 20 53 6F 75 6E 64 20 49 6D 61 67 65 73 20 28 63 29 20 31 39 39 31
+
+start 0x0500 code: 20 E8 55 00 B8 BD C0 E8 4F 00 B8 08 00 E8 49 00 B8 04 21 E8 43 00 C6 06 6B 0B 01 C3 8A 1E F0 00 0A DB 74 18 80 FB 13 73 13 BF 4C 06 B9 04 00 80 7D 10 00 90 74

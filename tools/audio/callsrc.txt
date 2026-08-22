@@ -1,0 +1,25 @@
+def call(cpu, ax, max_steps=4_000_000, trace=0):
+    cpu.r['ax'] = ax & 0xFFFF
+    cpu.halt_ip = 0xFFFF
+    cpu.push(0x200)      # fake iret frame: flags (pushed first = popped last)
+    cpu.push(0)          # cs
+    cpu.push(0xFFFF)     # ip (pushed last = popped first = halt sentinel)
+    cpu.ip = 0
+    log = []
+    if trace:
+        def t(ip, name):
+            log.append((ip, name))
+        cpu.log = t
+    r = None
+    try:
+        r = cpu.run(max_steps)
+    except SystemExit:
+        pass
+    if trace:
+        seen = []
+        for ip, name in log[:trace]:
+            seen.append('%04X:%s' % (ip, name))
+        print(' '.join(seen))
+    cpu.log = None
+    cpu.halt_ip = None
+    return r

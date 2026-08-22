@@ -1,0 +1,18 @@
+# game data & generated assets (users supply their own DOS Lemmings files)
+original/
+assets.js
+adlib_data.js
+build/
+
+# copyrighted reference material (manual, shareware disk image)
+docs/reference/
+
+# native gameplay captures
+tools/capture/native/
+
+# misc
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db

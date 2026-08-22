@@ -1,0 +1,170 @@
+f000 0349 push bx          ax=0000 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 034A push si          ax=0000 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 034B mov              ax=0029 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 034D nop              ax=0029 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 034E nop              ax=0029 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 034F add              ax=0011 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 0352 nop              ax=0011 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 0353 add              ax=0015 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 0355 xor              ax=0015 bx=1786 si=1C2C di=05AC note=29 off=E8
+f000 0357 mov              ax=0015 bx=1786 si=0015 di=05AC note=29 off=E8
+f000 0359 mov              ax=0015 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 035D mov              ax=0009 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 0361 add              ax=0012 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 0363 add              ax=0024 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 0365 add              ax=0048 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 0367 add              ax=0090 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 0369 add              ax=0120 bx=1701 si=0015 di=05AC note=29 off=E8
+f000 036B mov si,imm16     ax=0120 bx=1701 si=0927 di=05AC note=29 off=E8
+f000 036E add              ax=0120 bx=1701 si=0A47 di=05AC note=29 off=E8
+f000 0370 lodsw            ax=FE44 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0371 inc/dec byte     ax=FE44 bx=1700 si=0A49 di=05AC note=29 off=E8
+f000 0373 or               ax=FE44 bx=1700 si=0A49 di=05AC note=29 off=E8
+f000 0375 jge              ax=FE44 bx=1700 si=0A49 di=05AC note=29 off=E8
+f000 0377 inc/dec byte     ax=FE44 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0379 or               ax=FE44 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 037B jge              ax=FE44 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0381 push ax          ax=FE44 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0382 mov              ax=4444 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0384 mov              ax=4400 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0387 nop              ax=4400 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 0388 add              ax=44A0 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 038A call             ax=44A0 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 038D pop ax           ax=FE44 bx=1701 si=0A49 di=05AC note=29 off=E8
+f000 038E and              ax=0244 bx=1701 si=0A49 di=05AC note=29 off=E8
+f015 0349 push bx          ax=0606 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 034A push si          ax=0606 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 034B mov              ax=0627 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 034D nop              ax=0627 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 034E nop              ax=0627 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 034F add              ax=063F bx=1789 si=1C3C di=05AC note=27 off=18
+f015 0352 nop              ax=063F bx=1789 si=1C3C di=05AC note=27 off=18
+f015 0353 add              ax=0643 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 0355 xor              ax=0043 bx=1789 si=1C3C di=05AC note=27 off=18
+f015 0357 mov              ax=0043 bx=1789 si=0043 di=05AC note=27 off=18
+f015 0359 mov              ax=0043 bx=1705 si=0043 di=05AC note=27 off=18
+f015 035D mov              ax=0007 bx=1705 si=0043 di=05AC note=27 off=18
+f015 0361 add              ax=000E bx=1705 si=0043 di=05AC note=27 off=18
+f015 0363 add              ax=001C bx=1705 si=0043 di=05AC note=27 off=18
+f015 0365 add              ax=0038 bx=1705 si=0043 di=05AC note=27 off=18
+f015 0367 add              ax=0070 bx=1705 si=0043 di=05AC note=27 off=18
+f015 0369 add              ax=00E0 bx=1705 si=0043 di=05AC note=27 off=18
+f015 036B mov si,imm16     ax=00E0 bx=1705 si=0927 di=05AC note=27 off=18
+f015 036E add              ax=00E0 bx=1705 si=0A07 di=05AC note=27 off=18
+f015 0370 lodsw            ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0371 inc/dec byte     ax=FE05 bx=1704 si=0A09 di=05AC note=27 off=18
+f015 0373 or               ax=FE05 bx=1704 si=0A09 di=05AC note=27 off=18
+f015 0375 jge              ax=FE05 bx=1704 si=0A09 di=05AC note=27 off=18
+f015 0377 inc/dec byte     ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0379 or               ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 037B jge              ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0381 push ax          ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0382 mov              ax=0505 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0384 mov              ax=0500 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0387 nop              ax=0500 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 0388 add              ax=05A0 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 038A call             ax=05A0 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 038D pop ax           ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f015 038E and              ax=0205 bx=1705 si=0A09 di=05AC note=27 off=18
+f025 0349 push bx          ax=1616 bx=178C si=1BFC di=05AC note=2B off=F4
+f025 034A push si          ax=1616 bx=178C si=1BFC di=05AC note=2B off=F4
+f025 034B mov              ax=162B bx=178C si=1BFC di=05AC note=2B off=F4
+f025 034D nop              ax=162B bx=178C si=1BFC di=05AC note=2B off=F4
+f025 034E nop              ax=162B bx=178C si=1BFC di=05AC note=2B off=F4
+f025 034F add              ax=161F bx=178C si=1BFC di=05AC note=2B off=F4
+f025 0352 nop              ax=161F bx=178C si=1BFC di=05AC note=2B off=F4
+f025 0353 add              ax=1623 bx=178C si=1BFC di=05AC note=2B off=F4
+f025 0355 xor              ax=0023 bx=178C si=1BFC di=05AC note=2B off=F4
+f025 0357 mov              ax=0023 bx=178C si=0023 di=05AC note=2B off=F4
+f025 0359 mov              ax=0023 bx=1702 si=0023 di=05AC note=2B off=F4
+f025 035D mov              ax=000B bx=1702 si=0023 di=05AC note=2B off=F4
+f025 0361 add              ax=0016 bx=1702 si=0023 di=05AC note=2B off=F4
+f025 0363 add              ax=002C bx=1702 si=0023 di=05AC note=2B off=F4
+f025 0365 add              ax=0058 bx=1702 si=0023 di=05AC note=2B off=F4
+f025 0367 add              ax=00B0 bx=1702 si=0023 di=05AC note=2B off=F4
+f025 0369 add              ax=0160 bx=1702 si=0023 di=05AC note=2B off=F4
+f025 036B mov si,imm16     ax=0160 bx=1702 si=0927 di=05AC note=2B off=F4
+f025 036E add              ax=0160 bx=1702 si=0A87 di=05AC note=2B off=F4
+f025 0370 lodsw            ax=FE8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0371 inc/dec byte     ax=FE8B bx=1701 si=0A89 di=05AC note=2B off=F4
+f025 0373 or               ax=FE8B bx=1701 si=0A89 di=05AC note=2B off=F4
+f025 0375 jge              ax=FE8B bx=1701 si=0A89 di=05AC note=2B off=F4
+f025 0377 inc/dec byte     ax=FE8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0379 or               ax=FE8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 037B jge              ax=FE8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0381 push ax          ax=FE8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0382 mov              ax=8B8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0384 mov              ax=8B00 bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0387 nop              ax=8B00 bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 0388 add              ax=8BA0 bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 038A call             ax=8BA0 bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 038D pop ax           ax=FE8B bx=1702 si=0A89 di=05AC note=2B off=F4
+f025 038E and              ax=028B bx=1702 si=0A89 di=05AC note=2B off=F4
+f040 0349 push bx          ax=0A0A bx=178F si=1C3C di=05AC note=27 off=18
+f040 034A push si          ax=0A0A bx=178F si=1C3C di=05AC note=27 off=18
+f040 034B mov              ax=0A27 bx=178F si=1C3C di=05AC note=27 off=18
+f040 034D nop              ax=0A27 bx=178F si=1C3C di=05AC note=27 off=18
+f040 034E nop              ax=0A27 bx=178F si=1C3C di=05AC note=27 off=18
+f040 034F add              ax=0A3F bx=178F si=1C3C di=05AC note=27 off=18
+f040 0352 nop              ax=0A3F bx=178F si=1C3C di=05AC note=27 off=18
+f040 0353 add              ax=0A43 bx=178F si=1C3C di=05AC note=27 off=18
+f040 0355 xor              ax=0043 bx=178F si=1C3C di=05AC note=27 off=18
+f040 0357 mov              ax=0043 bx=178F si=0043 di=05AC note=27 off=18
+f040 0359 mov              ax=0043 bx=1705 si=0043 di=05AC note=27 off=18
+f040 035D mov              ax=0007 bx=1705 si=0043 di=05AC note=27 off=18
+f040 0361 add              ax=000E bx=1705 si=0043 di=05AC note=27 off=18
+f040 0363 add              ax=001C bx=1705 si=0043 di=05AC note=27 off=18
+f040 0365 add              ax=0038 bx=1705 si=0043 di=05AC note=27 off=18
+f040 0367 add              ax=0070 bx=1705 si=0043 di=05AC note=27 off=18
+f040 0369 add              ax=00E0 bx=1705 si=0043 di=05AC note=27 off=18
+f040 036B mov si,imm16     ax=00E0 bx=1705 si=0927 di=05AC note=27 off=18
+f040 036E add              ax=00E0 bx=1705 si=0A07 di=05AC note=27 off=18
+f040 0370 lodsw            ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0371 inc/dec byte     ax=FE05 bx=1704 si=0A09 di=05AC note=27 off=18
+f040 0373 or               ax=FE05 bx=1704 si=0A09 di=05AC note=27 off=18
+f040 0375 jge              ax=FE05 bx=1704 si=0A09 di=05AC note=27 off=18
+f040 0377 inc/dec byte     ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0379 or               ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 037B jge              ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0381 push ax          ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0382 mov              ax=0505 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0384 mov              ax=0500 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0387 nop              ax=0500 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 0388 add              ax=05A0 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 038A call             ax=05A0 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 038D pop ax           ax=FE05 bx=1705 si=0A09 di=05AC note=27 off=18
+f040 038E and              ax=0205 bx=1705 si=0A09 di=05AC note=27 off=18
+f045 0349 push bx          ax=0000 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 034A push si          ax=0000 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 034B mov              ax=0011 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 034D nop              ax=0011 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 034E nop              ax=0011 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 034F add              ax=00F8 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 0352 nop              ax=00F8 bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 0353 add              ax=00FC bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 0355 xor              ax=00FC bx=1961 si=1BEC di=05C0 note=11 off=E7
+f045 0357 mov              ax=00FC bx=1961 si=00FC di=05C0 note=11 off=E7
+f045 0359 mov              ax=00FC bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 035D mov              ax=0049 bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 0361 add              ax=0092 bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 0363 add              ax=0024 bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 0365 add              ax=0048 bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 0367 add              ax=0090 bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 0369 add              ax=0120 bx=1900 si=00FC di=05C0 note=11 off=E7
+f045 036B mov si,imm16     ax=0120 bx=1900 si=0927 di=05C0 note=11 off=E7
+f045 036E add              ax=0120 bx=1900 si=0A47 di=05C0 note=11 off=E7
+f045 0370 lodsw            ax=FE44 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0371 inc/dec byte     ax=FE44 bx=19FF si=0A49 di=05C0 note=11 off=E7
+f045 0373 or               ax=FE44 bx=19FF si=0A49 di=05C0 note=11 off=E7
+f045 0375 jge              ax=FE44 bx=19FF si=0A49 di=05C0 note=11 off=E7
+f045 0377 inc/dec byte     ax=FE44 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0379 or               ax=FE44 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 037B jge              ax=FE44 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0381 push ax          ax=FE44 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0382 mov              ax=4444 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0384 mov              ax=4401 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0387 nop              ax=4401 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 0388 add              ax=44A1 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 038A call             ax=44A1 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 038D pop ax           ax=FE44 bx=1900 si=0A49 di=05C0 note=11 off=E7
+f045 038E and              ax=0244 bx=1900 si=0A49 di=05C0 note=11 off=E7

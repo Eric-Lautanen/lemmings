@@ -1,0 +1,12 @@
+const fs = require('fs');
+const vm = require('vm');
+global.window = {};
+vm.runInThisContext(fs.readFileSync('build/assets.js', 'utf8'), { filename: 'assets.js' });
+vm.runInThisContext(fs.readFileSync('web/game.js', 'utf8'), { filename: 'game.js' });
+const T = window._lemTest;
+T.resetLevel(6);
+const L = T.state.level;
+console.log('skills:', JSON.stringify(L.skills));
+console.log('section:', L.section);
+console.log('exit:', JSON.stringify({ x: L.exit.x, y: L.exit.y, w: L.exit.w, h: L.exit.h }));
+console.log('solid?', L.solid ? L.solid.length : 'none');

@@ -1,0 +1,18 @@
+﻿total 758
+0000  0000             add byte ptr [eax], al
+0002  0001             add byte ptr [ecx], al
+0004  0000             add byte ptr [eax], al
+0006  009000000000     add byte ptr [eax], dl
+000c  0000             add byte ptr [eax], al
+000e  0000             add byte ptr [eax], al
+0010  0000             add byte ptr [eax], al
+0012  0000             add byte ptr [eax], al
+0014  0000             add byte ptr [eax], al
+0016  0000             add byte ptr [eax], al
+0018  009000000000     add byte ptr [eax], dl
+001e  d401             aam 1
+0020  4f               dec edi
+0021  0200             add al, byte ptr [eax]
+0023  00b001000020     add byte ptr [eax + 0x20000001], dh
+0029  03800c800c40     add eax, dword ptr [eax + 0x400c800c]
+002f  01c0             add eax, eax

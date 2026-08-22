@@ -1,0 +1,21 @@
+f00 A0=05
+f00 B0=22
+f07 B0=02
+f07 A0=05
+f07 B0=22
+f14 B0=02
+f14 A0=05
+f14 B0=22
+--- freq calcs ---
+ip=LODSW ax=FE05 bl=00 note=23 off=E0
+ip=PUSH ax=FE05 bl=00 note=00 off=00
+ip=LODSW ax=FE23 bl=01 note=23 off=E0
+ip=PUSH ax=FE23 bl=01 note=00 off=00
+ip=LODSW ax=FE05 bl=00 note=23 off=E0
+ip=PUSH ax=FE05 bl=00 note=00 off=00
+ip=LODSW ax=FE05 bl=00 note=23 off=E0
+ip=PUSH ax=FE05 bl=00 note=00 off=00
+ip=LODSW ax=FE05 bl=00 note=23 off=E0
+ip=PUSH ax=FE05 bl=00 note=00 off=00
+ip=LODSW ax=FE23 bl=01 note=23 off=E0
+ip=PUSH ax=FE23 bl=01 note=00 off=00
