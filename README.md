@@ -1,13 +1,16 @@
 # Lemmings (DOS, 1991) — faithful web port
 
+**Play it now:** [eric-lautanen.github.io/lemmings](https://eric-lautanen.github.io/lemmings/)
+
 A 1:1 reimplementation of the original DOS **Lemmings** engine, driven by the
 game's own data files. No redrawn assets, no approximated level data — every
 terrain piece, object frame, animation, sound effect and music tune is decoded
 from the original files at build time.
 
-> **Requires the original DOS Lemmings files.** Place them in `original/` and
-> run `python tools/build_bundle.py`. They are not included in this repo
-> (© Psygnosis / DMA Design).
+> The decoded data bundles (`assets.js`, `adlib_data.js`) are included so the
+> game runs out of the box. To regenerate them from your own DOS Lemmings
+> files (© Psygnosis / DMA Design), place the originals in `original/` and run
+> the two commands below.
 
 ## Run
 

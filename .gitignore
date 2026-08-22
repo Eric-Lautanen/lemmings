@@ -1,7 +1,5 @@
-# game data & generated assets (users supply their own DOS Lemmings files)
+# level/graphics source files (the decoded bundles ARE committed)
 original/
-assets.js
-adlib_data.js
 build/
 
 # copyrighted reference material (manual, shareware disk image)
