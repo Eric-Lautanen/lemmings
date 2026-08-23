@@ -120,6 +120,7 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
     var solid = new Uint8Array(W * H);       // 1 = terrain solid
     var color = new Uint8Array(W * H);       // palette index (0 = black)
     var steel = new Uint8Array(W * H);
+    var specWorldPal = null;
     var objMap = [];                         // {x,y,w,h,id,effect,dead}
 
     // terrain: [x, mods, y, tid]; mods bits (Lemmix tdf_, verified vs DOS
@@ -147,7 +148,34 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
         }
       }
     }
-    // steam areas + DOS object map (steel → DOM_STEEL)
+    // special-graphics levels (GraphicSetEx > 0): the whole terrain is a
+    // pre-rendered 960x160 bitmap from vgaspecN.dat, drawn at x=304
+    // (DOS RenderWorld -> DrawSpecialBitmap).  It replaces all terrain pieces.
+    if (lv.spec > 0 && A.vg && A.vg[lv.spec - 1]) {
+      var vg = A.vg[lv.spec - 1];
+      var bm = unpackPlane(b64d(vg.d), 960, 160, 3);
+      color.fill(0); solid.fill(0); steel.fill(0);
+      var spal = [[0, 0, 0]];
+      for (var pi = 1; pi < 8; pi++) {
+        var c6 = vg.p[pi];
+        spal.push([c6[0] * 4, c6[1] * 4, c6[2] * 4]);
+      }
+      var wpal = [];
+      for (var wi = 0; wi < 16; wi++) wpal.push(spal[wi] || [0, 0, 0]);
+      specWorldPal = wpal;
+      for (var by = 0; by < H; by++) {
+        for (var bx2 = 0; bx2 < 960; bx2++) {
+          var bv2 = bm[by * 960 + bx2];
+          if (!bv2) continue;
+          var wxi = bx2 + 304;
+          if (wxi >= W) continue;
+          var id6 = by * W + wxi;
+          color[id6] = bv2;
+          solid[id6] = 1;
+        }
+      }
+    }
+    // steel areas + DOS object map (steel → DOM_STEEL)
     var dom = new Uint8Array(DOMW * DOMH); dom.fill(DOM_NONE);
     var putDom = function (x, y, v) { var i = domIdx({ dom: dom }, x, y); if (i >= 0) dom[i] = v; };
     if (lv.steel) {
@@ -229,6 +257,7 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
 
     return {
       idx: idx, name: me.name, gfx: lv.gfxset, W: W, H: H,
+      worldPal: specWorldPal,
       solid: solid, color: color, steel: steel, objs: objMap, dom: dom, traps: traps,
       anims: objMap.filter(function (o2) { return o2.anim; }),
       spawnX: entrances.length ? entrances[0].dx + 24 : 8,
@@ -1106,7 +1135,8 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
     // the world bitmap changes whenever lemmings dig/bash/mine/build/explode;
     // those edits set L.worldDirty, forcing a re-render here
     if (L.canvas && !L.worldDirty) return L.canvas;
-    var c = toImg(L.color, L.W, L.H, gfxSet(L.gfx).pal);
+    var pal = L.worldPal || gfxSet(L.gfx).pal;
+    var c = toImg(L.color, L.W, L.H, pal);
     L.canvas = c;
     L.worldDirty = false;
     return c;

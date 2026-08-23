@@ -185,7 +185,7 @@ def main():
         levels.append(dict(
             name=lv['name'], rate=lv['rate'], lems=lv['lems'], rescue=lv['rescue'],
             time=lv['time'], skills=lv['skills'], startx=lv['startx'],
-            gfxset=lv['gfxset'], objs=lv['objs'], terrain=lv['terrains'],
+            gfxset=lv['gfxset'], spec=lv.get('spec', 0), objs=lv['objs'], terrain=lv['terrains'],
             steel=lv['steels']))
 
     # ---- oddtable (80 header overrides, raw uncompressed) ----
@@ -313,7 +313,7 @@ def main():
     )
     with open(os.path.join('build', 'assets.json'), 'w') as fh:
         json.dump(assets, fh)
-    for p in ('build', 'web'):
+    for p in ('build', '.'):
         with open(os.path.join(p, 'assets.js'), 'w') as fh:
             fh.write('window.GAME_ASSETS=' + json.dumps(assets) + ';')
     print('bundle written, bytes:', os.path.getsize(os.path.join('build', 'assets.js')))

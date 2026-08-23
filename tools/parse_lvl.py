@@ -16,6 +16,7 @@ def parse_level(path, sec=0):
     skills = [int.from_bytes(data[8 + 2 * i:10 + 2 * i], 'big') for i in range(8)]
     startx = int.from_bytes(data[0x18:0x1A], 'big')
     gfxset = int.from_bytes(data[0x1A:0x1C], 'big')
+    spec = int.from_bytes(data[0x1C:0x1E], 'big')   # GraphicSetEx: >0 = vgaspecN.dat
     objs = []
     for i in range(32):
         e = data[0x20 + i * 8:0x28 + i * 8]
@@ -56,7 +57,7 @@ def parse_level(path, sec=0):
         steels.append((sx, sy, sw, sh))
     name = data[0x7E0:0x800].rstrip(b' ').decode('ascii', 'replace')
     return dict(rate=rate, lems=lems, rescue=rescue, time=time, skills=skills,
-                startx=startx, gfxset=gfxset, name=name, objs=objs,
+                startx=startx, gfxset=gfxset, spec=spec, name=name, objs=objs,
                 terrains=terrains, steels=steels)
 
 
