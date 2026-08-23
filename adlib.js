@@ -680,7 +680,8 @@
     var scope = (typeof window !== 'undefined') ? window : global;
     var AC = scope.AudioContext || scope.webkitAudioContext;
     if (!AC) return;
-    this.ctx = new AC();
+    try { this.ctx = new AC({ latencyHint: 'interactive' }); }
+    catch (e) { this.ctx = new AC(); }
     var image = decodeB64(scope.ADLIB_DRIVER_B64);
     // Two independent driver instances on two independent emulated chips:
     // one for music, one for SFX.  On real DOS hardware the SFX hijacked a
@@ -700,21 +701,21 @@
     this.applyGains();
     this.tickGap = this.ctx.sampleRate / 72.8261;
     var self = this;
-    this.node = this.ctx.createScriptProcessor(1024, 0, 2);
+    this.node = this.ctx.createScriptProcessor(512, 0, 2);
     this.node.onaudioprocess = function (e) {
       var outL = e.outputBuffer.getChannelData(0);
       var outR = e.outputBuffer.getChannelData(1);
       var n = e.outputBuffer.length;
+      // catch up on missed driver ticks (bounded so a throttled tab doesn't
+      // dump a huge burst of events at once)
+      var ticks = 0;
+      while (self.samplePos >= self.nextTick && ticks++ < 6) {
+        self._pumpDrivers();
+        self.nextTick += self.tickGap;
+      }
       for (var i = 0; i < n; i++) {
         if (self.samplePos >= self.nextTick) {
-          self.driver.update();
-          var ev = self.driver.events;
-          for (var j = 0; j < ev.length; j++) self.renderer.apply(ev[j][0], ev[j][1]);
-          ev.length = 0;
-          self.sfxDriver.update();
-          var sv = self.sfxDriver.events;
-          for (var j2 = 0; j2 < sv.length; j2++) self.sfxRenderer.apply(sv[j2][0], sv[j2][1]);
-          sv.length = 0;
+          self._pumpDrivers();
           self.nextTick += self.tickGap;
         }
         var v = self.renderer.process() * self._musicGainNow * 2.2;
@@ -727,6 +728,19 @@
       }
     };
     this.node.connect(this.ctx.destination);
+  };
+
+  // Advance both driver instances once, pushing their register writes to
+  // their chips right away.
+  AdlibAudio.prototype._pumpDrivers = function () {
+    this.driver.update();
+    var ev = this.driver.events;
+    for (var i = 0; i < ev.length; i++) this.renderer.apply(ev[i][0], ev[i][1]);
+    ev.length = 0;
+    this.sfxDriver.update();
+    var sv = this.sfxDriver.events;
+    for (var j = 0; j < sv.length; j++) this.sfxRenderer.apply(sv[j][0], sv[j][1]);
+    sv.length = 0;
   };
 
   AdlibAudio.prototype.applyGains = function () {
@@ -764,10 +778,13 @@
   AdlibAudio.prototype.playTune = function (tune) {
     this.init();
     if (!this.driver || !this.musicOn) { this.pendingTune = tune; return; }
+    this.unlock();
     this.driver.init();
     this.driver.set_tune(tune);
     this.driver.start();
-    this.unlock();
+    // load + start the tune right now: first notes sound in the very next
+    // output buffer instead of up to ~14 ms later
+    this._pumpDrivers();
   };
 
   // AH=4: play a sound effect (1..18) on the dedicated SFX chip/driver.
@@ -776,6 +793,8 @@
     if (!this.sfxDriver) return;
     this.sfxDriver.set_tempo(n);
     this.unlock();
+    // start the effect stream now rather than at the next scheduled tick
+    this._pumpDrivers();
   };
 
   // Browsers suspend the AudioContext until a user gesture; call this from
