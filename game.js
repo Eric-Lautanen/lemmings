@@ -1585,7 +1585,7 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
     if (nb) nb.addEventListener('click', function () { nextLevel(); });
     // restore persisted settings
     if (audio) {
-      audio.setMusicVolume(loadPref('musicvol', 0.5));
+      audio.setMusicVolume(loadPref('musicvol', 0.25));
       audio.setMusicOn(loadPref('music', true));
       audio.setSfxOn(loadPref('sfx', true));
       setMusicBtn(audio.musicOn);
