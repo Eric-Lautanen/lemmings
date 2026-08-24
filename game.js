@@ -1317,7 +1317,7 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
       if (l.explosionTimer > 0) {
         var dgt = l.explosionTimer > 64 ? 5 : l.explosionTimer > 48 ? 4 :
                   l.explosionTimer > 32 ? 3 : l.explosionTimer > 16 ? 2 : 1;
-        var cd = countdownDigits()[dgt - 1];
+        var cd = countdownDigits()[5 - dgt];
         ctx.fillStyle = 'rgb(240,208,208)';
         var cdx = Math.round(l.x) - 1 - state.cam, cdy = Math.round(l.y) + 1 - foot[1] - 12;
         for (var cy9 = 0; cy9 < 8; cy9++) for (var cx9 = 0; cx9 < 8; cx9++) {
