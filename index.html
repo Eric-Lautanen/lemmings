@@ -49,6 +49,16 @@
   button.primary { background: #2a3550; }
   button#prev, button#next { padding: 6px 9px; font-size: 11px; color: var(--dim); }
   button#prev:hover, button#next:hover { color: var(--text); }
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    height: 4px; background: var(--edge); border-radius: 2px;
+    outline: none; cursor: pointer; vertical-align: middle;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); cursor: pointer;
+  }
   button.on.active, button.active {
     background: #3d3324;
     border-color: var(--accent);
@@ -126,6 +136,7 @@
   <button id="reset" class="primary">Restart <kbd>R</kbd></button>
   <span style="width:1px;height:22px;background:var(--edge)"></span>
   <button id="music" class="on" title="Toggle music">Music: on</button>
+  <input type="range" id="musicvol" min="0" max="100" value="50" title="Music volume" style="width:80px">
   <button id="sfxbtn" class="on" title="Toggle sound effects">SFX: on</button>
   <span id="msg"></span>
 </div>

@@ -663,6 +663,7 @@
     this.muted = false;
     this.musicOn = true;
     this.sfxOn = true;
+    this.musicVolume = 0.5;
     this.ctx = null;
     this.node = null;
     this.driver = null;      // music driver (kept for backwards compatibility)
@@ -745,29 +746,25 @@
     this.node.connect(this.ctx.destination);
   };
 
+  // Exact tune lengths in driver ticks, measured by running each tune
+  // through the real emulated 8086 driver until its end-of-tune signal.
+  var TUNE_LENGTHS = [29737, 34047, 33120, 30844, 28269, 28061, 28340, 28825,
+    27046, 25804, 33003, 31558, 32651, 32447, 29887, 31064, 31504, 41225,
+    34934, 30813, 32676];
+
   // Advance the music driver once, pushing register writes to its chip.
   AdlibAudio.prototype._pumpMusic = function () {
     this.driver.update();
     var ev = this.driver.events;
     for (var i = 0; i < ev.length; i++) this.renderer.apply(ev[i][0], ev[i][1]);
     ev.length = 0;
-    // tune-end detection: DOS plays a tune once then runs its section lists
-    // into garbage and eventually silence.  Neither produces a clean "end"
-    // signal we can intercept in JS, so we detect the silence: count
-    // consecutive ticks with zero music events; after ~3 s of silence the
-    // tune is over — restart it from the top.
+    // tune-end: restart cleanly at the measured tick count (no garbage)
     if (this.currentTune > 0 && this.musicOn) {
       this.tuneTick++;
-      var hadEvents = ev.length > 0;
-      if (hadEvents) { this._silentTicks = 0; this.tuneTick = this.tuneTick; }
-      else {
-        this._silentTicks = (this._silentTicks || 0) + 1;
-        if (this._silentTicks > 200 && this.tuneTick > 100) {
-          this.driver.set_tune(this.currentTune);
-          this.driver.start();
-          this.tuneTick = 0;
-          this._silentTicks = 0;
-        }
+      if (this.tuneTick >= TUNE_LENGTHS[this.currentTune - 1]) {
+        this.driver.set_tune(this.currentTune);
+        this.driver.start();
+        this.tuneTick = 0;
       }
     }
   };
@@ -788,7 +785,7 @@
   };
 
   AdlibAudio.prototype.applyGains = function () {
-    this._musicGainNow = (this.musicOn && !this.muted) ? this.volume : 0;
+    this._musicGainNow = (this.musicOn && !this.muted) ? this.volume * this.musicVolume * 2 : 0;
     this._sfxGainNow = (this.sfxOn && !this.muted) ? this.volume : 0;
   };
 
@@ -799,6 +796,11 @@
     this.musicOn = !!on;
     this.applyGains();
     prefSave('music', this.musicOn);
+  };
+  AdlibAudio.prototype.setMusicVolume = function (v) {
+    this.musicVolume = Math.max(0, Math.min(1, v));
+    this.applyGains();
+    prefSave('musicvol', this.musicVolume);
   };
   AdlibAudio.prototype.setSfxOn = function (on) {
     this.sfxOn = !!on;

@@ -1585,15 +1585,21 @@ cache.objects.push({ w: o.w, h: o.h, img: all[o.s].img, mask: all[o.s].mask,
     if (nb) nb.addEventListener('click', function () { nextLevel(); });
     // restore persisted settings
     if (audio) {
+      audio.setMusicVolume(loadPref('musicvol', 0.5));
       audio.setMusicOn(loadPref('music', true));
       audio.setSfxOn(loadPref('sfx', true));
       setMusicBtn(audio.musicOn);
       setSfxBtn(audio.sfxOn);
+      if (mv) mv.value = Math.round(audio.musicVolume * 100);
     }
     var mb = document.getElementById('music');
     var sb = document.getElementById('sfxbtn');
+    var mv = document.getElementById('musicvol');
     if (mb) mb.addEventListener('click', function () { if (audio) { audio.unlock(); setMusicBtn(audio.toggleMusic()); } });
     if (sb) sb.addEventListener('click', function () { if (audio) { audio.unlock(); setSfxBtn(audio.toggleSfx()); } });
+    if (mv) mv.addEventListener('input', function () {
+      if (audio) audio.setMusicVolume(mv.value / 100);
+    });
     // browsers keep the AudioContext suspended until a user gesture; unlock
     // audio on any of them so clicks alone start the music
     function unlockAudio() { if (audio) { audio.unlock(); state.msgT = 0; } }
