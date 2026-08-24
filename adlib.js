@@ -76,6 +76,7 @@
     this.m[0x0EF] = 0;
     if (tune >= 0x16) {
       this.silence_all();
+      if (this.onTuneEnd) this.onTuneEnd();
       return;
     }
     this.load_tune(tune);
@@ -698,8 +699,22 @@
     }
     this.driver.init();
     this.sfxDriver.init();
+    // loop the tune: the DOS driver's end-of-tune writes [0xEF]=0xFF which
+    // tune_check treats as "stop" — intercept it and restart instead
+    var self = this;
+    this.driver.onTuneEnd = function () {
+      if (self.currentTune > 0 && self.musicOn) {
+        self.driver.set_tune(self.currentTune);
+        self.driver.start();
+        self.tuneTick = 0;
+        self._allWasOff = false;
+      }
+    };
+    this.sfxDriver.onTuneEnd = null;  // SFX just stops
     this.applyGains();
     this.tickGap = this.ctx.sampleRate / 72.8261;
+    this.currentTune = 0;
+    this.tuneTick = 0;
     var self = this;
     this.node = this.ctx.createScriptProcessor(512, 0, 2);
     this.node.onaudioprocess = function (e) {
@@ -730,17 +745,46 @@
     this.node.connect(this.ctx.destination);
   };
 
-  // Advance both driver instances once, pushing their register writes to
-  // their chips right away.
-  AdlibAudio.prototype._pumpDrivers = function () {
+  // Advance the music driver once, pushing register writes to its chip.
+  AdlibAudio.prototype._pumpMusic = function () {
     this.driver.update();
     var ev = this.driver.events;
     for (var i = 0; i < ev.length; i++) this.renderer.apply(ev[i][0], ev[i][1]);
     ev.length = 0;
+    // tune-end detection: DOS plays a tune once then runs its section lists
+    // into garbage and eventually silence.  Neither produces a clean "end"
+    // signal we can intercept in JS, so we detect the silence: count
+    // consecutive ticks with zero music events; after ~3 s of silence the
+    // tune is over — restart it from the top.
+    if (this.currentTune > 0 && this.musicOn) {
+      this.tuneTick++;
+      var hadEvents = ev.length > 0;
+      if (hadEvents) { this._silentTicks = 0; this.tuneTick = this.tuneTick; }
+      else {
+        this._silentTicks = (this._silentTicks || 0) + 1;
+        if (this._silentTicks > 200 && this.tuneTick > 100) {
+          this.driver.set_tune(this.currentTune);
+          this.driver.start();
+          this.tuneTick = 0;
+          this._silentTicks = 0;
+        }
+      }
+    }
+  };
+
+  // Advance the SFX driver once (separate from music so SFX triggers don't
+  // advance the music driver's tempo counter, which caused note skipping).
+  AdlibAudio.prototype._pumpSfx = function () {
     this.sfxDriver.update();
     var sv = this.sfxDriver.events;
     for (var j = 0; j < sv.length; j++) this.sfxRenderer.apply(sv[j][0], sv[j][1]);
     sv.length = 0;
+  };
+
+  // Advance both (used by the scheduled audio callback).
+  AdlibAudio.prototype._pumpDrivers = function () {
+    this._pumpMusic();
+    this._pumpSfx();
   };
 
   AdlibAudio.prototype.applyGains = function () {
@@ -782,9 +826,12 @@
     this.driver.init();
     this.driver.set_tune(tune);
     this.driver.start();
+    this.currentTune = tune;
+    this.tuneTick = 0;
+    this._allWasOff = false;
     // load + start the tune right now: first notes sound in the very next
     // output buffer instead of up to ~14 ms later
-    this._pumpDrivers();
+    this._pumpMusic();
   };
 
   // AH=4: play a sound effect (1..18) on the dedicated SFX chip/driver.
@@ -793,8 +840,9 @@
     if (!this.sfxDriver) return;
     this.sfxDriver.set_tempo(n);
     this.unlock();
-    // start the effect stream now rather than at the next scheduled tick
-    this._pumpDrivers();
+    // start the effect stream now rather than at the next scheduled tick;
+    // only the SFX driver is pumped so music tempo is unaffected
+    this._pumpSfx();
   };
 
   // Browsers suspend the AudioContext until a user gesture; call this from
